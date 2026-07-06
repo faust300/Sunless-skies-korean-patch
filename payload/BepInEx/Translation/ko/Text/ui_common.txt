@@ -1,0 +1,20 @@
+Officers=장교
+Example=예시
+Saving=저장 중
+<b>BUGS & TECHNICAL HELP</b> \r\n\n• If you find a bug please let us know via the bug reporter found through the pause menu or by pressing F8.\n\r\n• For technical help, please see our <u><link\=https:\/\/www.failbettergames.com/sunless-skies-troubleshooting-guide/>Troubleshooting Guide</link></u>.=<b>버그 및 기술 지원</b> \r\n\n• 버그를 발견했다면 일시정지 메뉴의 버그 신고 기능을 사용하거나 F8을 눌러 알려주세요.\n\r\n• 기술 지원이 필요하다면 <u><link\=https:\/\/www.failbettergames.com/sunless-skies-troubleshooting-guide/>문제 해결 가이드</link></u>를 확인하세요.
+Cotterell=코터렐
+Slot:=슬롯:
+Inventory=소지품
+Status=상태
+Facets=면모
+Journal=항해일지
+Narrative Issue=서사 문제
+Submit=제출
+Description (optional)=설명(선택 사항)
+Category:=분류:
+Report a Bug=버그 신고
+Uploading... 0%=업로드 중... 0%
+Submitting Bug Report=버그 신고 제출 중
+Paused=일시정지
+Sunless Skies v2.0.6.454aad8=Sunless Skies v2.0.6.454aad8
+Tip title=팁 제목

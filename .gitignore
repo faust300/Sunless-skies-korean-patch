@@ -1,0 +1,5 @@
+_backup_korean_patch_*/
+*.log
+*.zip
+BepInEx/cache/
+BepInEx/interop/

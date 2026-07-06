@@ -1,0 +1,47 @@
+name: Release Installer
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build release zip
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $name = "SunlessSkies-KoreanPatch"
+          $zip = "$name.zip"
+          if (Test-Path $zip) { Remove-Item $zip -Force }
+          $items = @(
+            "README.md",
+            "install.ps1",
+            "INSTALL_KOREAN_PATCH.bat",
+            "payload"
+          )
+          Compress-Archive -Path $items -DestinationPath $zip -Force
+          Get-Item $zip | Format-List Name, Length
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SunlessSkies-KoreanPatch
+          path: SunlessSkies-KoreanPatch.zip
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: SunlessSkies-KoreanPatch.zip
+          generate_release_notes: true

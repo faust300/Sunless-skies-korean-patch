@@ -1,0 +1,13 @@
+Continue=계속
+New Game=새 게임
+Load Game=불러오기
+Options=설정
+Credits=제작진
+Exit to Desktop=게임 종료
+Cancel=취소
+Audio=음향
+Controls=조작
+Main Menu=주 메뉴
+Saved Game=저장된 게임
+Back Button=뒤로
+Begin a new game=새 게임 시작
