@@ -21,7 +21,7 @@ function Resolve-GameDir {
         return $default
     }
 
-    $inputPath = Read-Host "Enter your Sunless Skies game folder"
+    $inputPath = Read-Host "Sunless Skies 게임 폴더 경로를 입력해 주세요"
     if ($inputPath -and (Test-Path -LiteralPath (Join-Path $inputPath "Sunless Skies.exe"))) {
         return (Resolve-Path -LiteralPath $inputPath).Path
     }
@@ -63,8 +63,8 @@ foreach ($item in $backupItems) {
 Copy-Item -LiteralPath (Join-Path $payload "*") -Destination $target -Recurse -Force
 
 Write-Host ""
-Write-Host "Sunless Skies Korean patch installed."
-Write-Host "Game folder: $target"
-Write-Host "Backup folder: $backup"
+Write-Host "Sunless Skies 한국어 패치 설치가 완료되었습니다."
+Write-Host "게임 폴더: $target"
+Write-Host "백업 폴더: $backup"
 Write-Host ""
-Write-Host "Launch the game once. The first launch may take longer while BepInEx prepares files."
+Write-Host "이제 게임을 실행하세요. 첫 실행은 BepInEx 준비 때문에 조금 오래 걸릴 수 있습니다."
