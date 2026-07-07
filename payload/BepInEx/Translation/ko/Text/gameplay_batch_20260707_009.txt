@@ -1,0 +1,15 @@
+'<b>Magdalene's</b>, the House of Small Comfort, requires up to <b>three Gourds of Chorister Nectar</b>. Only respectable businesspersons need apply.' [dir:21004c53-ad6e-43e4-8df4-0230da3e87e6].=‘작은 안락의 집’ 막달레네에서 성가대원 넥타르 최대 세 박을 구합니다. 품위 있는 사업가만 응하십시오. [dir:21004c53-ad6e-43e4-8df4-0230da3e87e6].
+The devils of <b>Carillon</b> are experimenting with a new penance involving close-harmony singing. They request <b>up to five Gourds of Chorister Nectar</b>, which is considered a vocal panacea by opera singers and actors. [dir:f3ca7b9d-a6ba-4d2a-bbd1-b12d4ec25036].=카리용의 악마들은 밀착 화음 노래가 포함된 새로운 참회 방식을 실험하고 있습니다. 그들은 오페라 가수와 배우들이 목소리의 만병통치약으로 여기는 성가대원 넥타르를 최대 다섯 박 요청합니다. [dir:f3ca7b9d-a6ba-4d2a-bbd1-b12d4ec25036].
+The Bohemians of Achlys prize a blend of tea called Midnight's Favour. But that's hard to come by. "The local blends are very bitter," admits a past visitor. "Someone should take them <b>a gourd or three of Chorister Nectar</b> to sweeten them up." [dir:9e91ea8e-3f0f-4a25-a400-2f451d91da81].=아클리스의 보헤미안들은 ‘한밤의 은총’이라는 차 배합을 귀하게 여깁니다. 하지만 그것은 구하기 어렵습니다. "현지 배합은 아주 씁니다." 예전 방문자가 인정합니다. "누군가 성가대원 넥타르 한 박이나 세 박쯤 가져가서 단맛을 더해 줘야 해요." [dir:9e91ea8e-3f0f-4a25-a400-2f451d91da81].
+A curt note from your Devil requests an 'excess' of Chorister Nectar for the practice of the entire seven act opera 'Pandemonia: the Flight from Heaven's Chariot and the Progress through Dream's Embrace'. \r\n\r\nThe Devil suggests the residents don't have anything better to be doing anyway.  <b>Three Gourds of Chorister Nectar</b> are requested. [dir:1b331350-d950-4c06-94e0-38dd736859d7].=당신의 악마가 보낸 짤막한 쪽지는 7막짜리 오페라 ‘판데모니아: 천상의 전차로부터의 도주와 꿈의 포옹을 지나는 행진’ 전막 연습을 위해 성가대원 넥타르가 ‘과하게’ 필요하다고 요청합니다.\r\n\r\n악마는 주민들이 어차피 달리 더 나은 일을 하고 있지도 않을 것이라고 암시합니다. 성가대원 넥타르 세 박이 요청되었습니다. [dir:1b331350-d950-4c06-94e0-38dd736859d7].
+Ask about Midnight's Favour=한밤의 은총에 대해 묻는다
+Midnight's Favour=한밤의 은총
+Think about Midnight's Favour=한밤의 은총에 대해 생각한다
+A Connoisseur of Fine Teas: Midnight's Favour=고급 차 감정가: 한밤의 은총
+You have sampled Midnight's Favour.=당신은 한밤의 은총을 맛보았습니다.
+Although this port is mostly famed for its homegrown Midnight's Favour, it is quickly becoming a trade hub for every flavour and blend of tea you could possibly wish for.=이 항구는 주로 자체 생산하는 한밤의 은총으로 유명하지만, 이제는 상상할 수 있는 온갖 맛과 배합의 차가 모이는 교역 중심지로 빠르게 변하고 있습니다.
+Your enquiries draw little but averted eyes and apologies that they 'are not worthy of Midnight's Favour'.=당신이 묻자 돌아오는 것은 시선을 피하는 눈길과, 자신들은 ‘한밤의 은총을 받을 자격이 없다’는 사과뿐입니다.
+What remains of it now that Midnight's Favour is no more, at least.=적어도 한밤의 은총이 사라진 지금 남은 것은 그렇습니다.
+In search of Midnight's Favour=한밤의 은총을 찾아서
+The bulk of the market is devoted to brews and incense, and the almost priceless Midnight's Favour. Every breeze carries a different scent.=시장 대부분은 우린 차와 향, 그리고 거의 값을 매길 수 없는 한밤의 은총에 바쳐져 있습니다. 바람이 불 때마다 다른 향기가 실려 옵니다.
+Everything here seems to revolve around tea and spice, and a special blend made in the monastery that nobody you speak to appears to have tasted.=이곳의 모든 것은 차와 향신료, 그리고 대화한 사람 중 누구도 맛본 적이 없어 보이는 수도원의 특별 배합을 중심으로 돌아가는 듯합니다.
