@@ -11,7 +11,9 @@ try
     var appDir = AppContext.BaseDirectory;
     var translationDir = ResolveTranslationDir(appDir, options.TranslationDir);
     var gameDir = ResolveGameDir(options.GameDir);
-    var resourcesAssetsPath = Path.Combine(gameDir, "Sunless Skies_Data", "resources.assets");
+    var gameDataDir = Path.Combine(gameDir, "Sunless Skies_Data");
+    var resourcesAssetsPath = Path.Combine(gameDataDir, "resources.assets");
+    var packagedAssetsDir = ResolvePackagedAssetsDir(appDir);
     var fontPath = Path.Combine(gameDir, "font");
     var packagedFontPath = ResolvePackagedFont(appDir);
     var fontSourcePath = options.PatchFont ? packagedFontPath ?? (File.Exists(fontPath) ? fontPath : null) : null;
@@ -48,11 +50,39 @@ try
     var backupRoot = Path.Combine(gameDir, $"_backup_korean_direct_patch_{stamp}");
     var total = 0;
 
-    if (options.PatchResources)
+    var packagedAssetNames = new[]
+    {
+        "resources.assets",
+        "sharedassets0.assets",
+        "level4",
+        "level5",
+        "level16",
+        "level24",
+        Path.Combine("il2cpp_data", "Metadata", "global-metadata.dat")
+    };
+    var packagedResourcesInstalled = false;
+    foreach (var assetName in packagedAssetNames)
+    {
+        var packagedPath = packagedAssetsDir is null ? null : Path.Combine(packagedAssetsDir, assetName);
+        if (packagedPath is not null && !File.Exists(packagedPath))
+        {
+            packagedPath = null;
+        }
+
+        total += InstallPackagedFile(
+            "StaticAssets",
+            Path.Combine(gameDataDir, assetName),
+            packagedPath,
+            backupRoot,
+            options.DryRun);
+        packagedResourcesInstalled |= assetName == "resources.assets" && packagedPath is not null;
+    }
+
+    if (options.PatchResources && !packagedResourcesInstalled)
     {
         total += PatchResourcesAssets("ResourcesAssets", resourcesAssetsPath, backupRoot, options.DryRun, translations, fontSourcePath, options.PatchFont);
     }
-    else
+    else if (!packagedResourcesInstalled)
     {
         Console.WriteLine($"ResourcesAssets: {resourcesAssetsPath}");
         Console.WriteLine("  resources asset patch skipped");
@@ -408,6 +438,27 @@ static string? ResolvePackagedFont(string appDir)
     foreach (var candidate in candidates)
     {
         if (File.Exists(candidate))
+        {
+            return Path.GetFullPath(candidate);
+        }
+    }
+
+    return null;
+}
+
+static string? ResolvePackagedAssetsDir(string appDir)
+{
+    var candidates = new[]
+    {
+        Path.Combine(appDir, "Sunless Skies_Data"),
+        Path.Combine(appDir, "payload", "Sunless Skies_Data"),
+        Path.Combine(Directory.GetCurrentDirectory(), "Sunless Skies_Data"),
+        Path.Combine(Directory.GetCurrentDirectory(), "payload", "Sunless Skies_Data")
+    };
+
+    foreach (var candidate in candidates)
+    {
+        if (Directory.Exists(candidate))
         {
             return Path.GetFullPath(candidate);
         }

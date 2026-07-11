@@ -55,7 +55,7 @@ jobs:
           Copy-Item payload/BepInEx/Translation/ko/Text/*.txt "$stage/translations"
           Copy-Item payload/BepInEx/Translation/ko/Text/*.txt "$stage/translation-source"
           Copy-Item payload/metadata_ui*.txt "$stage/translation-source"
-          Copy-Item "payload/Sunless Skies_Data/resources.assets" "$stage/Sunless Skies_Data/resources.assets"
+          Copy-Item "payload/Sunless Skies_Data/*" "$stage/Sunless Skies_Data" -Recurse
           Compress-Archive -Path "$stage/*" -DestinationPath $zip -Force
           Get-Item $zip | Format-List Name, Length
 
