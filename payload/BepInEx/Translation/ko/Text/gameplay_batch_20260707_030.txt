@@ -4,7 +4,7 @@ Two overseers are on hand to haul away your crates. They open a heavy iron door,
 Two overseers rush to haul away your crates. 'Thank you!' one shouts over his shoulder. They seem anxious.=감독관 둘이 달려와 당신의 상자를 끌고 갑니다. '고맙소!' 한 명이 어깨너머로 외칩니다. 그들은 초조해 보입니다.
 Cordite and Order: Munitions for Brabazon=장약과 질서: 브라바존으로 보낼 군수품
 The Dazzled Sequencer thumbs through the books with little interest. "I'm sure these will do. Although some of them seem frivolous. I prefer hymns, myself."=눈부신 배열자는 별 관심 없이 책장을 넘깁니다. "이 정도면 되겠지요. 몇 권은 좀 경박해 보이지만요. 개인적으로는 찬송가를 더 좋아합니다."
-The Fruits of Labour: Literature for the Clockwork Sun=노동의 결실: 시계태엽 태양으로 보낼 문학
+The Fruits of Labour: Literature for the Clockwork Sun=노동의 결실: 태엽장치 태양으로 보낼 문학
 Her Renewed Majesty has ordered the construction of a memorial chapel for the labourers who, during the Promised Days, gave their lives to lay the foundations of Albion. <b>Five Casks of Navaratine Gemstones</b> are required for its grand mural, to depict the blood, the sweat and the tears. [dir:358df020-9a27-47c3-8a80-6f1c836898df].=새로워지신 폐하께서는 약속된 나날 동안 알비온의 토대를 놓기 위해 목숨을 바친 노동자들을 위한 기념 예배당 건설을 명하셨습니다. 피와 땀과 눈물을 묘사할 거대한 벽화를 위해 <b>나바라틴 보석 다섯 통</b>이 필요합니다. [dir:358df020-9a27-47c3-8a80-6f1c836898df].
 They say these are the ever-cooling sparks that fall from the Forge of Souls. =사람들은 이것들이 영혼의 대장간에서 떨어져 영원히 식어 가는 불꽃이라고 말합니다. 
 The Direful Chamberlain takes your consignment with customary gloom. "Serviceable. Which is, let's face it, all that we can really hope for." High praise.=무시무시한 시종장이 늘 그렇듯 음울하게 당신의 화물을 받습니다. "쓸 만하군. 솔직히 말해 우리가 바랄 수 있는 건 그 정도뿐이지." 대단한 칭찬입니다.
@@ -19,7 +19,7 @@ The Macabre Counsellor's afternoon teas at the <b>Most Serene Mausoleum</b> are 
 CrateofNostalgicCrockery=향수 어린 식기 상자
 A Doddery Butler painstakingly counts out your payment. "The Counsellor is grateful," he wheezes, and hands it over with a receipt of goods. Later, you realise he also accidentally gave you something else. =노쇠한 집사가 공들여 당신의 보수를 세어 줍니다. "고문관께서 감사해하십니다." 그가 숨을 헐떡이며 말하고, 물품 영수증과 함께 보수를 건넵니다. 나중에 당신은 그가 실수로 다른 것도 함께 건넸다는 사실을 깨닫습니다. 
 Somber Ceramics: Crockery for the Macabre Counsellor=침울한 도자기: 섬뜩한 고문관에게 보낼 식기
-The Clockwork Sun does not, of course, run on tea. But the battalion of engineers who maintain it surely must. Every month, a new tender for <b>three Caddies of Dried Tea</b> is offered. Regular as – yes – clockwork. [dir:bfc72a01-6af5-4c74-9354-74848b97c35d].=물론 시계태엽 태양이 차로 움직이는 것은 아닙니다. 하지만 그것을 유지하는 기술자 대대는 분명 차로 움직일 것입니다. 매달 <b>말린 차 통 세 개</b>에 대한 새 입찰이 올라옵니다. 정확히, 그렇습니다, 시계태엽처럼요. [dir:bfc72a01-6af5-4c74-9354-74848b97c35d].
+The Clockwork Sun does not, of course, run on tea. But the battalion of engineers who maintain it surely must. Every month, a new tender for <b>three Caddies of Dried Tea</b> is offered. Regular as – yes – clockwork. [dir:bfc72a01-6af5-4c74-9354-74848b97c35d].=물론 태엽장치 태양이 차로 움직이는 것은 아닙니다. 하지만 그것을 유지하는 기술자 대대는 분명 차로 움직일 것입니다. 매달 <b>말린 차 통 세 개</b>에 대한 새 입찰이 올라옵니다. 정확히, 그렇습니다, 시계태엽처럼요. [dir:bfc72a01-6af5-4c74-9354-74848b97c35d].
 Caddies of Dried Tea=말린 차 통
 As British as crinoline. Or Lord Elgin's Marbles.=크리놀린만큼이나 영국적입니다. 혹은 엘긴 경의 대리석 조각만큼이나요.
 Caddy of Dried Tea=말린 차 통

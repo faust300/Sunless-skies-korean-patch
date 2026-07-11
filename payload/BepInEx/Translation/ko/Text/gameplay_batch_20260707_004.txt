@@ -24,4 +24,4 @@ Officer: Rat Brigade=장교: 쥐 여단
 Weapon=무기
 Spectacles=안경
 Forged Companion=벼려진 동료
-Correspondence Sigils – Once Lost, Now Found=통신 인장 - 한때 잃어버렸으나 이제 찾은 것
+Correspondence Sigils – Once Lost, Now Found=서신 문양 - 한때 잃어버렸으나 이제 되찾은 것

@@ -1,4 +1,4 @@
-Your engine was damaged in its escape from the Blue Kingdom. The captain was injured. Can you see her back to New Winchester?=블루 킹덤에서 탈출하는 동안 당신의 기관차가 손상되었습니다. 선장도 부상을 입었습니다. 그녀를 뉴 윈체스터까지 데려갈 수 있겠습니까?
+Your engine was damaged in its escape from the Blue Kingdom. The captain was injured. Can you see her back to New Winchester?=푸른 왕국에서 탈출하는 동안 당신의 기관차가 손상되었습니다. 선장도 부상을 입었습니다. 그녀를 뉴 윈체스터까지 데려갈 수 있겠습니까?
 Time is running out for Captain Whitlock=휘틀록 선장에게 남은 시간이 얼마 없습니다
 Time is running out for Captain Whitlock.=휘틀록 선장에게 남은 시간이 얼마 없습니다.
 Captain Whitlock has passed away=휘틀록 선장이 세상을 떠났습니다
