@@ -11,3 +11,5 @@ Main Menu=주 메뉴
 Saved Game=저장된 게임
 Back Button=뒤로
 Begin a new game=새 게임 시작
+Start a New Game=새 게임 시작
+Start a new game=새 게임 시작

@@ -1,5 +1,9 @@
 _backup_korean_patch_*/
+_release/
 *.log
 *.zip
 BepInEx/cache/
 BepInEx/interop/
+tools/**/bin/
+tools/**/obj/
+_tmp_static_patch/

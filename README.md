@@ -1,10 +1,12 @@
 # Sunless Skies 한국어 패치
 
-**현재 배포 버전: v0.2.1**
+**현재 배포 버전: v1.0.0**
 
 Sunless Skies 한국어 패치입니다.
 
 아직 초벌 번역 단계입니다. 자동번역 캐시를 배포 패키지에서 제외하고, 수동으로 검수한 번역만 포함합니다.
+
+v1.0.0부터는 BepInEx를 설치하지 않는 직접 패치 설치기를 사용합니다. 설치기는 게임 데이터 파일을 백업한 뒤 번역 데이터와 정적 UI 패치를 적용합니다.
 
 현재는 초반 튜토리얼, 메뉴, 선장 생성, 뉴 윈체스터, 약속의 날들, 거래 튜토리얼, 일부 바자/교역/Prospect 문구를 중심으로 번역하고 있습니다.
 
@@ -23,10 +25,10 @@ Sunless Skies 한국어 패치입니다.
 1. Sunless Skies를 종료합니다.
 2. Release에서 `SunlessSkies-KoreanPatch.zip`을 내려받습니다.
 3. 압축을 풉니다.
-4. `INSTALL_KOREAN_PATCH.bat`을 더블클릭합니다.
+4. `SunlessSkiesKoreanInstaller.exe`를 실행합니다.
 5. 설치가 끝나면 게임을 다시 실행합니다.
 
-설치 프로그램이 게임 폴더를 자동으로 찾지 못하면 안내에 따라 직접 게임 폴더를 입력할 수 있습니다.
+설치 프로그램이 게임 폴더를 자동으로 찾지 못하면 안내에 따라 직접 게임 폴더를 입력할 수 있습니다. 설치 전 원본 데이터 파일은 `_backup_korean_direct_patch_날짜` 폴더에 백업됩니다.
 
 기본 Steam 설치 경로는 보통 아래와 같습니다.
 
@@ -49,8 +51,21 @@ C:\Program Files (x86)\Steam\steamapps\common\Sunless Skies
 - 바자 상점 및 주요 교역품 설명 일부
 - 고무질 남자 관련 일부 문구
 
+## 번역 소스
+
+번역 소스는 저장소에 공개되어 있습니다.
+
+- 일반 대사·이벤트·UI: `payload/BepInEx/Translation/ko/Text/*.txt`
+- IL2CPP 메뉴·시스템 UI: `payload/metadata_ui*.txt`
+- 스크린샷 기반 수정 내역: `payload/BepInEx/Translation/ko/Text/screenshot_fixes_*.txt`
+- 미번역 조사 보고서와 작업 규칙: `docs/`
+
+번역표는 기본적으로 `영문 원문=한국어 번역` 형식입니다. 게임 내부의 서식 태그와 숫자 자리표시자는 동작에 필요하므로 번역할 때 보존해야 합니다. 오역이나 미번역 제보에는 게임 화면과 영문 원문을 함께 첨부해 주세요.
+
 ## 참고
 
 - 자동번역 캐시는 배포 패키지에서 제외되어 있습니다.
+- 직접 패치 방식은 BepInEx를 요구하지 않습니다.
+- Release 압축 파일의 `translation-source` 폴더에도 배포 시점의 번역 소스를 함께 제공합니다.
 - 수동 번역이 없는 문장은 영어로 표시될 수 있습니다.
-- 글자가 깨지면 `BepInEx/config/AutoTranslatorConfig.ini`에서 `FallbackFontTextMeshPro=arialuni_sdf_u2019`인지 확인해 주세요.
+- 글꼴/줄바꿈 보정은 아직 별도 검증 중입니다.

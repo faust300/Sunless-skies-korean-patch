@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AssetsTools.NET"><HintPath>..\AssetProbe\lib\AssetsTools.NET.dll</HintPath></Reference>
+    <Reference Include="AssetsTools.NET.Cpp2IL"><HintPath>..\AssetProbe\lib\AssetsTools.NET.Cpp2IL.dll</HintPath></Reference>
+    <Reference Include="LibCpp2IL"><HintPath>..\AssetProbe\lib\LibCpp2IL.dll</HintPath></Reference>
+    <Reference Include="WasmDisassembler"><HintPath>..\AssetProbe\lib\WasmDisassembler.dll</HintPath></Reference>
+  </ItemGroup>
+</Project>

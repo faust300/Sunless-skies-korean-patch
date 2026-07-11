@@ -1,0 +1,15 @@
+Officers and Mascots=장교와 마스코트
+In addition to your ordinary crew, you now have an officer, or perhaps a mascot. Officers must be appointed before you can benefit from their skills, abilities, or animal charisma. The first officer you recruit for each role will automatically be appointed. To change officers, open the Officers panel while in port.=일반 선원 외에도 이제 장교나 마스코트를 둘 수 있습니다. 장교의 능력과 기술, 또는 동물 특유의 매력을 활용하려면 먼저 임명해야 합니다. 각 직책에 처음 영입한 장교는 자동으로 임명됩니다. 장교를 변경하려면 항구에 정박한 상태에서 장교 화면을 여세요.
+Disable Advice=조언 끄기
+Hide Advice=조언 숨기기
+New Winchester Bazaar=뉴 윈체스터 바자
+Locomotive captains gather at the bazaar to trade goods and information. Here, you can acquire 'prospects': opportunities to sell a good at a distant port for an excellent price. Accept a prospect to claim it, source the goods, and deliver them.=기관차 선장들은 바자에 모여 상품과 정보를 거래합니다. 이곳에서는 먼 항구에 상품을 좋은 가격으로 판매할 수 있는 '거래 제안'을 얻을 수 있습니다. 거래 제안을 선택해 수락한 뒤 상품을 구해 배달하세요.
+New prospects available in 30 days.=새 거래 제안은 30일 후에 제공됩니다.
+Prospects available=이용 가능한 거래 제안
+Select this prospect to claim it.=이 거래 제안을 선택해 수락하세요.
+Port Avon lies to the east of New Winchester, and Magdalene's lies to the southeast of New Winchester.=포트 에이번은 뉴 윈체스터 동쪽에 있고, 막달렌은 뉴 윈체스터 남동쪽에 있습니다.
+The Reach=리치
+THE REACH=리치
+Company House=컴퍼니 하우스
+Wispy condensation trails cross the sky; the ghosts of passing trains.=희미한 응결 자국이 하늘을 가로지릅니다. 지나간 열차의 유령처럼.
+A distant clamour of engine-yards. An accretion of smog on the windows.=멀리 기관차 정비소의 소란이 들려옵니다. 창문에는 스모그가 층층이 내려앉습니다.

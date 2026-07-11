@@ -18,3 +18,5 @@ Submitting Bug Report=버그 신고 제출 중
 Paused=일시정지
 Sunless Skies v2.0.6.454aad8=Sunless Skies v2.0.6.454aad8
 Tip title=팁 제목
+Reconnect=다시 연결
+Reconnect a controller=컨트롤러를 다시 연결하세요

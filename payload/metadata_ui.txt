@@ -1,0 +1,6 @@
+Continue=계속
+New Game=새 게임
+Load Game=불러오기
+Options=설정
+Credits=제작진
+Exit to Desktop=게임 종료
