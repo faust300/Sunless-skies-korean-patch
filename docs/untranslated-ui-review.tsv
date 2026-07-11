@@ -1,0 +1,29 @@
+﻿asset	status	pathIds	text
+resources.assets	DEVELOPMENT	44557	A label name
+resources.assets	DEVELOPMENT	38249	A label name:
+resources.assets	DEVELOPMENT	43375	aaaaaaa
+resources.assets	DEVELOPMENT	38179	Body. It's the body text. With a bod-bod-bod and a bod-bod-bod. Bod.
+resources.assets	DEVELOPMENT	42828	Dr Random
+resources.assets	IGNORED	40731	Hallidges prides itslef\s
+resources.assets	DEVELOPMENT	39576	Header
+resources.assets	DEVELOPMENT	39496	Hello World\nHello World\nHello World
+resources.assets	DEVELOPMENT	45161	Here is where the AvailableAt text should go.
+resources.assets	DEVELOPMENT	45202	Label
+resources.assets	DEVELOPMENT	45414	label
+resources.assets	IGNORED	43095	Naufragiste
+resources.assets	DEVELOPMENT	40998	New Text
+resources.assets	DEVELOPMENT	43166	One way to do it is to simply throw away Unity’s layout engine altogether, and only use their components for display/events. This is a perfectly valid way to go about it, and in fact is necessary if you want more control over how the animation is done. However, one of my main goals was to leverage Unity’s layout engine somehow.
+resources.assets	DEVELOPMENT	40289	One way to do it is to simply throw away Unity’s layout.
+resources.assets	DEVELOPMENT	44273,45126	TEST
+resources.assets	DEVELOPMENT	40057,42592	Testing testing
+resources.assets	DEVELOPMENT	38082	TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest\nTestTestTestTest\nTestTestTestTest\nTestTestTestTest\nTestTestTestTest
+resources.assets	DEVELOPMENT	43405,44664	Text text text text Text text text text  Text text text text
+resources.assets	DEVELOPMENT	38827,42823	The smoggy, clankingx The smoggy, clanking
+resources.assets	DEVELOPMENT	40915	This is headerline description
+resources.assets	DEVELOPMENT	40033	This is placeholder text, this is placeholder text, this is placeholder text, this is placeholder text, this is placeholder text.
+resources.assets	DEVELOPMENT	43179	This is standard message description text
+resources.assets	DEVELOPMENT	37563,38026,38510	This is the body text. This is the body text. This is the body text. \n\nThis is the body text. This is the body text. This is the body text.\s
+resources.assets	DEVELOPMENT	43368,44660	Tip description. Tip description. Tip description. Tip description. Tip description. Tip description. Tip description. Tip description. Tip description. Tip description. Tip description. Tip description. Tip description. Tip description. Tip description. Tip description. \n\nTip description. Tip description. Tip description.\s
+resources.assets	DEVELOPMENT	43366	title
+resources.assets	DEVELOPMENT	44932	VERSION VERSION
+resources.assets	DEVELOPMENT	37492,39059	Warning body, who knows how large this'll eventually become?\s

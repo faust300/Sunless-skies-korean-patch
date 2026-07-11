@@ -1,0 +1,32 @@
+ Enemy projectiles are significantly slower, making it easier to avoid them.= 적의 투사체가 훨씬 느려져 피하기 쉬워집니다.
+ Many player weapons arc aggressively towards targets, making aiming easier.= 다수의 무기가 목표를 향해 크게 휘어 날아가 조준하기 쉬워집니다.
+, +1 <color\=#ADFBF7>Affiliation: Bohemia=, +1 <color\=#ADFBF7>연줄: 보헤미아
+14th Mar 1905=1905년 3월 14일
+1500xp=1500 경험치
+500/1000 XP\n=500/1000 경험치\n
+<style\="descriptive">Select this prospect to claim it.</style>=<style\="descriptive">이 거래 제안을 선택하여 수락하세요.</style>
+<style\="descriptive">To complete this prospect, supply X more:</style>=<style\="descriptive">이 거래 제안을 완료하려면 다음 물품을 X개 더 공급하세요:</style>
+Ambition: Wealth\n=야망: 재산\n
+Amniotic Crew Containment/Anti-Breach System=양막식 승무원 수용 및 이탈 방지 장치
+An infernal beast of brass and steam! A midnight miracle=황동과 증기로 빚은 지옥의 괴수! 한밤의 기적
+Carefully-Packed Crate of Munitions\s=조심스럽게 포장한 탄약 상자\s
+For technical support please see our <u><link\=https://steamcommunity.com/sharedfiles/filedetails/?id\=1860884266>Troubleshooting Guide</link></u>.\n\nWhen you submit a report we also collect a copy of your save file, an output log with details about any errors or exceptions, and some system information, such as your operating system and screen resolution.\r\n\r\nAll data collected this way is anonymous and is only stored for 90 days (which gives us plenty of time to read and process it). Thank you – your reports and feedback help us to make Sunless Skies better.=기술 지원이 필요하면 <u><link\=https://steamcommunity.com/sharedfiles/filedetails/?id\=1860884266>문제 해결 안내서</link></u>를 확인하세요.\n\n버그를 신고하면 저장 파일 사본과 오류 및 예외 정보가 담긴 출력 로그, 운영 체제와 화면 해상도 등의 시스템 정보도 함께 수집됩니다.\r\n\r\n수집되는 모든 자료는 익명으로 처리되며 90일 동안만 보관됩니다. 신고와 의견은 Sunless Skies를 개선하는 데 큰 도움이 됩니다. 감사합니다.
+Gain +5 <color\=#ADFBF7>Veils<color\=#FCF4DF>, +5 <color\=#ADFBF7>Iron<color\=#FCF4DF>, +1 <color\=#ADFBF7>Affiliation: Villainy=은밀 <color\=#ADFBF7>+5<color\=#FCF4DF>, 완력 <color\=#ADFBF7>+5<color\=#FCF4DF>, 악당 연줄 <color\=#ADFBF7>+1
+Locomotive captains gather at the bazaar to trade goods and information. Here, you can acquire 'prospects': opportunities to sell a good at a distant port for an excellent price. Accept a prospect to claim it, source the goods, and delvier them.=기관차 선장들은 바자에 모여 상품과 정보를 거래합니다. 이곳에서는 먼 항구에 상품을 좋은 가격으로 판매할 수 있는 '거래 제안'을 얻을 수 있습니다. 거래 제안을 선택해 수락한 뒤 상품을 구해 배달하세요.
+Moloch-Class Liner=몰로크급 정기선
+Nightingale Engine Yard=나이팅게일 기관차 조선소
+The Nightingale Yard, the gleaming pride of Pan, endeavours to outdo all its rivals, whether mortal or stellar. Price should be the only barrier to quality craftsmanship.=판의 빛나는 자랑인 나이팅게일 조선소는 인간이든 별이든 모든 경쟁자를 능가하려 합니다. 훌륭한 제작품을 손에 넣는 데 걸림돌은 오직 가격뿐입니다.
+The skill of confronting and overpowering.\s=맞서 싸워 제압하는 능력입니다.\s
+The judge, stony-faced, condemned you to New Newgate, the stalactite-prison of Old London. Its dark was thick as tar. Its cells were small as pantries. How did you spend your days there?=무표정한 판사는 당신을 옛 런던의 종유석 감옥, 뉴 뉴게이트로 보냈습니다. 그곳의 어둠은 타르처럼 짙었고 감방은 찬장만큼 비좁았습니다. 당신은 그곳에서 나날을 어떻게 보냈습니까?
+You notched each dismal day onto the cell wall. You steered clear of the monsters and the meek they preyed upon. You dreamed of the day of your release.=당신은 음울한 하루하루를 감방 벽에 새겼습니다. 괴물들과 그 먹잇감이 되는 나약한 이들을 피해 지냈습니다. 석방되는 날만을 꿈꾸었습니다.
+You notched each dismal day onto the cell wall. You steered clear of the monsters and the meek they preyed upon. You dreamed of the day of your release.\s=당신은 음울한 하루하루를 감방 벽에 새겼습니다. 괴물들과 그 먹잇감이 되는 나약한 이들을 피해 지냈습니다. 석방되는 날만을 꿈꾸었습니다.\s
+You would not let your education go to waste. You poured years of sleepless nights, setbacks and research into one great work. They called you brilliant, eccentric, and obsessive. \n\nThey said it was a waste of time. They said it was impossible. You proved them wrong. What were the fruits of your labour?=당신은 배움을 헛되이 버리지 않았습니다. 수년간의 불면과 좌절, 연구를 하나의 위대한 작품에 쏟아부었습니다. 사람들은 당신을 명석하고 별나며 집요하다고 불렀습니다.\n\n그들은 시간 낭비라고 했습니다. 불가능하다고도 했습니다. 당신은 그들이 틀렸음을 증명했습니다. 그 노력은 어떤 결실을 맺었습니까?
+A street urchin\n\n=거리의 부랑아\n\n
+A STREET URCHIN\nA STREET URCHIN=거리의 부랑아\n거리의 부랑아
+For one last time, under the light of a non-existent moon, you bow before the Unseen Queen. She raises the Cup to her lips, and drinks the timeless remnants of the Golden Day.\r\n\r\nYou descend to your engine on a moonbeam. You collect the Minute to Midnight (gleaming and dark); the Cloak of the Lion (shimmering, resplendent); you say your final goodbyes to your crew. They scarcely recognise you. Silver light shines between the cracks in your skin.\r\n\r\nAnd you walk back up into the sky. You are already planning your first move in the war against death. \r\n\r\nStorm clouds envelop you.\s=존재하지 않는 달빛 아래에서, 당신은 마지막으로 보이지 않는 여왕에게 절합니다. 여왕은 잔을 입술에 대고 황금빛 나날의 영원한 잔재를 마십니다.\r\n\r\n당신은 달빛을 타고 기관차로 내려갑니다. 자정까지 남은 1분과 찬란하고 어두운 사자의 망토를 챙긴 뒤 승무원들에게 마지막 작별을 고합니다. 그들은 당신을 거의 알아보지 못합니다. 피부의 갈라진 틈 사이로 은빛이 비칩니다.\r\n\r\n당신은 다시 하늘로 걸어 올라갑니다. 이미 죽음과의 전쟁에서 내디딜 첫 수를 구상하고 있습니다.\r\n\r\n폭풍 구름이 당신을 집어삼킵니다.\s
+Hello, <b><#FF8000>Gamertag</color></b>=안녕하세요, <b><#FF8000>Gamertag</color></b>
+Narrative Issue – Includes typos, story progression, journal inconsistencies.=서사 문제 - 오탈자, 이야기 진행 및 항해일지 불일치
+Press      Button=      버튼을 누르세요
+Schemes Schemes Schemes\s=계획, 계획, 또 계획\s
+Speed up <sprite name\="key_w">    Back <sprite name\="key_esc">=가속 <sprite name\="key_w">    뒤로 <sprite name\="key_esc">
+They'll take anything here; anything and everything. Though they especially like noodle soups. Man, they love their soups. All the different flavours.=이곳에서는 무엇이든 받아줍니다. 정말이지 무엇이든요. 하지만 특히 국수를 좋아합니다. 세상에, 온갖 맛의 국수를 얼마나 좋아하는지 모릅니다.

@@ -558,8 +558,8 @@ static Dictionary<string, string> LoadTranslations(string textDir)
 
         foreach (var rawLine in File.ReadLines(path, Encoding.UTF8))
         {
-            var line = rawLine.Trim();
-            if (line.Length == 0 || line.StartsWith("//", StringComparison.Ordinal))
+            var line = rawLine.TrimStart('\uFEFF');
+            if (string.IsNullOrWhiteSpace(line) || line.TrimStart().StartsWith("//", StringComparison.Ordinal))
             {
                 continue;
             }
@@ -570,8 +570,8 @@ static Dictionary<string, string> LoadTranslations(string textDir)
                 continue;
             }
 
-            var source = line[..equals].TrimStart('\uFEFF');
-            var target = line[(equals + 1)..].TrimStart('\uFEFF');
+            var source = line[..equals];
+            var target = line[(equals + 1)..];
             AddTranslation(translations, source, target);
         }
     }
@@ -625,6 +625,7 @@ static string UnescapeCommon(string value)
     return value
         .Replace("\\=", "=", StringComparison.Ordinal)
         .Replace("\\/", "/", StringComparison.Ordinal)
+        .Replace("\\s", " ", StringComparison.Ordinal)
         .Replace("\\r", "\r", StringComparison.Ordinal)
         .Replace("\\n", "\n", StringComparison.Ordinal)
         .Replace("\\t", "\t", StringComparison.Ordinal);

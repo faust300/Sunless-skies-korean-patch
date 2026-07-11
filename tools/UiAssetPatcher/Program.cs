@@ -123,8 +123,8 @@ static Dictionary<string, string> LoadTranslations(string textDir)
 
         foreach (var rawLine in File.ReadLines(path, Encoding.UTF8))
         {
-            var line = rawLine.Trim();
-            if (line.Length == 0 || line.StartsWith("//", StringComparison.Ordinal))
+            var line = rawLine.TrimStart('\uFEFF');
+            if (string.IsNullOrWhiteSpace(line) || line.TrimStart().StartsWith("//", StringComparison.Ordinal))
             {
                 continue;
             }
@@ -135,8 +135,8 @@ static Dictionary<string, string> LoadTranslations(string textDir)
                 continue;
             }
 
-            var source = Unescape(line[..equals].TrimStart('\uFEFF'));
-            var target = Unescape(line[(equals + 1)..].TrimStart('\uFEFF'));
+            var source = Unescape(line[..equals]);
+            var target = Unescape(line[(equals + 1)..]);
             if (!string.IsNullOrWhiteSpace(source) && !string.IsNullOrWhiteSpace(target) && source != target)
             {
                 translations[source] = target;
@@ -161,6 +161,7 @@ static int FirstUnescapedEquals(string line)
 static string Unescape(string value) => value
     .Replace("\\=", "=", StringComparison.Ordinal)
     .Replace("\\/", "/", StringComparison.Ordinal)
+    .Replace("\\s", " ", StringComparison.Ordinal)
     .Replace("\\r", "\r", StringComparison.Ordinal)
     .Replace("\\n", "\n", StringComparison.Ordinal)
     .Replace("\\t", "\t", StringComparison.Ordinal);
@@ -192,8 +193,13 @@ static bool LooksLikeUntranslatedEnglish(string value)
     return value.Any(static c => c is >= 'A' and <= 'Z' or >= 'a' and <= 'z');
 }
 
-static string EscapeReport(string value) => value
-    .Replace("\\", "\\\\", StringComparison.Ordinal)
-    .Replace("\r", "\\r", StringComparison.Ordinal)
-    .Replace("\n", "\\n", StringComparison.Ordinal)
-    .Replace("\t", "\\t", StringComparison.Ordinal);
+static string EscapeReport(string value)
+{
+    var trailingSpaces = value.Length - value.TrimEnd(' ').Length;
+    var body = trailingSpaces == 0 ? value : value[..^trailingSpaces];
+    return body
+        .Replace("\\", "\\\\", StringComparison.Ordinal)
+        .Replace("\r", "\\r", StringComparison.Ordinal)
+        .Replace("\n", "\\n", StringComparison.Ordinal)
+        .Replace("\t", "\\t", StringComparison.Ordinal) + string.Concat(Enumerable.Repeat("\\s", trailingSpaces));
+}
