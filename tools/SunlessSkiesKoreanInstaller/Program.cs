@@ -508,12 +508,17 @@ static Dictionary<string, string> LoadTranslations(string textDir)
         foreach (var rawLine in File.ReadLines(path, Encoding.UTF8))
         {
             var line = rawLine.Trim();
-            if (line.Length == 0 || line.StartsWith("//", StringComparison.Ordinal) || !line.Contains('='))
+            if (line.Length == 0 || line.StartsWith("//", StringComparison.Ordinal))
             {
                 continue;
             }
 
-            var equals = line.IndexOf('=');
+            var equals = FindTranslationSeparator(line);
+            if (equals < 0)
+            {
+                continue;
+            }
+
             var source = line[..equals].TrimStart('\uFEFF');
             var target = line[(equals + 1)..].TrimStart('\uFEFF');
             AddTranslation(translations, source, target);
@@ -521,6 +526,30 @@ static Dictionary<string, string> LoadTranslations(string textDir)
     }
 
     return translations;
+}
+
+static int FindTranslationSeparator(string line)
+{
+    for (var index = 0; index < line.Length; index++)
+    {
+        if (line[index] != '=')
+        {
+            continue;
+        }
+
+        var backslashes = 0;
+        for (var previous = index - 1; previous >= 0 && line[previous] == '\\'; previous--)
+        {
+            backslashes++;
+        }
+
+        if (backslashes % 2 == 0)
+        {
+            return index;
+        }
+    }
+
+    return -1;
 }
 
 static void AddTranslation(Dictionary<string, string> translations, string source, string target)
