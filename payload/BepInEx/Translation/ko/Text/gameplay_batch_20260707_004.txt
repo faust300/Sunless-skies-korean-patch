@@ -2,7 +2,7 @@ A porter at the station advises you to visit the nearby pub, the Promise of Days
 The <i>Azazel</i> was seen passin' Lustrum and headin' over the edge towards the Wastes...=아자젤호가 러스트럼을 지나 폐허 쪽 가장자리 너머로 향하는 모습이 목격됐습니다...
 The [qvd:139308(ID2)]'s engine, the <i>Azazel</i>, was seen heading towards the wastes. You must follow her, to where all maps fail.\r\n\r\n[Travel beyond the edge of the map to search for your friend. Should you come to your senses before you find her, you may return here to abandon your quest.]=[qvd:139308(ID2)]의 기관차 아자젤호가 폐허를 향해 가는 모습이 목격됐습니다. 모든 지도가 무력해지는 곳까지 그녀를 따라가야 합니다.\r\n\r\n친구를 찾기 위해 지도의 가장자리 너머로 여행합니다. 그녀를 찾기 전에 정신이 든다면, 이곳으로 돌아와 수색을 포기할 수 있습니다.
 The seasoned captains – the Plucky Baroness, the Bedevilled Didact, the Masked Citizen, and 'Spatchcocker' Meg – have been assisting the [qvd:139308(ID2)] with her investigations into the fate of the stars.=노련한 선장들, 용감한 남작부인, 홀린 교사, 가면 시민, 그리고 ‘스패치코커’ 멕은 [qvd:139308(ID2)]가 별들의 운명을 조사하는 일을 도와 왔습니다.
-She left her crew at New Winchester and took the <i>Azazel</i>, alone, into the howling wastes.\r\n[The more searches you make, the better your chances of finding her.]=그녀는 선원들을 뉴 윈체스터에 남겨 둔 채 아자젤호를 몰고 홀로 울부짖는 폐허로 들어갔습니다.\r\n수색을 많이 할수록 그녀를 찾을 가능성이 높아집니다.
+She left her crew at New Winchester and took the <i>Azazel</i>, alone, into the howling wastes.\r\n[The more searches you make, the better your chances of finding her.]=그녀는 선원들을 뉴 윈체스터에 남겨 둔 채 아자젤호를 몰고 홀로 울부짖는 황무지로 들어갔습니다.\r\n수색을 많이 할수록 그녀를 찾을 가능성이 높아집니다.
 The <i>Azazel</i>=아자젤호
 The Azazel=아자젤호
 Not even the seasoned captains know everything that the two of you have learned. You can speak of this with no one else.=노련한 선장들조차 당신 둘이 알아낸 모든 것을 알지는 못합니다. 이 이야기는 다른 누구에게도 할 수 없습니다.

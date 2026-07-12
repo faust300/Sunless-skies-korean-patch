@@ -1,0 +1,5 @@
+# 기존 한국어 번역본과 현재 패키지 비교에서 확인된 누락 키 (2026-07-12)
+
+Explore=탐험
+<b><color\=#FDBD58FF><smallcaps>Company House</smallcaps></color></b>\n<color\=#FFFFFFFF>The headquarters of the Windward Company, London's proxy in the Reach.</color>=<b><color\=#FDBD58FF><smallcaps>컴퍼니 하우스</smallcaps></color></b>\n<color\=#FFFFFFFF>리치에서 런던을 대리하는 윈드워드 컴퍼니의 본부입니다.</color>
+<b>BUGS & TECHNICAL HELP</b> \r\n\n• If you find a bug please let us know via the bug reporter found through the pause menu or by pressing F8.\n\r\n• For technical help, please see our <u><link\=https:\/\/steamcommunity.com\/sharedfiles\/filedetails\/?id\=1860884266>Troubleshooting Guide</link></u>.=<b>버그 및 기술 지원</b> \r\n\n• 버그를 발견하시면 일시정지 메뉴의 버그 신고 기능이나 F8 키로 알려주십시오.\n\r\n• 기술 지원은 <u><link\=https:\/\/steamcommunity.com\/sharedfiles\/filedetails\/?id\=1860884266>문제 해결 가이드</link></u>를 참고하십시오.
