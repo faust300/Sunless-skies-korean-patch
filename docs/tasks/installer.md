@@ -3,6 +3,7 @@
 ## 현재 구조
 
 - 배포판은 BepInEx에 의존하지 않는다.
+- 사용자용 설치 진입점은 `SunlessSkiesKoreanInstaller.exe` 하나만 제공한다. 구형 배치 파일과 PowerShell 설치기는 배포하지 않는다.
 - C# 설치기가 게임 데이터를 백업한 뒤 번역 데이터와 정적 UI 에셋을 적용한다.
 - 한국어 글꼴과 정적 에셋은 배포 `payload`에 포함한다.
 - 설치기는 게임 폴더 자동 탐색에 실패하면 사용자가 경로를 입력할 수 있어야 한다.
@@ -10,6 +11,9 @@
 ## 주요 경로
 
 - 설치기: `tools/SunlessSkiesKoreanInstaller/`
+- 정적 UI 패처: `tools/UiAssetPatcher/`
+- 조사 및 실험 도구: `tools/experimental/`
+- 번역 사전: `translations/`
 - 배포 자료: `payload/`
 - Release 워크플로: `.github/workflows/release.yml`
 - 정적 에셋 설명: `docs/static-asset-patcher.md`

@@ -51,9 +51,9 @@ Do not use the first brute-force experiment that replaced the built-in TMP font,
 
 ## Probe tools
 
-- `tools/AssetProbe`
+- `tools/experimental/AssetProbe`
   - Finds raw string hits in `resources.assets`.
-- `tools/StaticAssetPatcher`
+- `tools/experimental/StaticAssetPatcher`
   - Experimental standalone asset string patcher.
-- `tools/BundleProbe`
+- `tools/experimental/BundleProbe`
   - Opens the root `font` bundle and confirms the bundled TMP SDF font assets.

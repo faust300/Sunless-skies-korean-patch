@@ -6,7 +6,7 @@ param(
 $ErrorActionPreference = "Stop"
 $repoDir = Split-Path -Parent $PSScriptRoot
 $dataDir = Join-Path $GameDir "Sunless Skies_Data"
-$translationDir = Join-Path $repoDir "payload\BepInEx\Translation\ko\Text"
+$translationDir = Join-Path $repoDir "translations"
 $payloadDataDir = Join-Path $repoDir "payload\Sunless Skies_Data"
 $workDir = Join-Path $repoDir "_tmp_static_patch\batch"
 $reportDir = Join-Path $repoDir "docs"

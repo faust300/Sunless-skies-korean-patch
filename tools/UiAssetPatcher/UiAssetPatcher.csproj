@@ -7,17 +7,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AssetsTools.NET">
-      <HintPath>..\AssetProbe\lib\AssetsTools.NET.dll</HintPath>
+      <HintPath>..\experimental\AssetProbe\lib\AssetsTools.NET.dll</HintPath>
     </Reference>
     <Reference Include="AssetsTools.NET.Cpp2IL">
-      <HintPath>..\AssetProbe\lib\AssetsTools.NET.Cpp2IL.dll</HintPath>
+      <HintPath>..\experimental\AssetProbe\lib\AssetsTools.NET.Cpp2IL.dll</HintPath>
     </Reference>
     <Reference Include="LibCpp2IL">
-      <HintPath>..\AssetProbe\lib\LibCpp2IL.dll</HintPath>
+      <HintPath>..\experimental\AssetProbe\lib\LibCpp2IL.dll</HintPath>
     </Reference>
     <Reference Include="WasmDisassembler">
-      <HintPath>..\AssetProbe\lib\WasmDisassembler.dll</HintPath>
+      <HintPath>..\experimental\AssetProbe\lib\WasmDisassembler.dll</HintPath>
     </Reference>
-    <None Include="..\AssetProbe\classdata.tpk" Link="classdata.tpk" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\experimental\AssetProbe\classdata.tpk" Link="classdata.tpk" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

@@ -410,9 +410,7 @@ static string ResolveTranslationDir(string appDir, string? explicitPath)
     }
 
     candidates.Add(Path.Combine(appDir, "translations"));
-    candidates.Add(Path.Combine(appDir, "payload", "BepInEx", "Translation", "ko", "Text"));
     candidates.Add(Path.Combine(Directory.GetCurrentDirectory(), "translations"));
-    candidates.Add(Path.Combine(Directory.GetCurrentDirectory(), "payload", "BepInEx", "Translation", "ko", "Text"));
 
     foreach (var candidate in candidates)
     {

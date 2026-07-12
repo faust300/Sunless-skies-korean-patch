@@ -49,11 +49,10 @@ jobs:
           New-Item -ItemType Directory -Path "$stage/translation-source" | Out-Null
           New-Item -ItemType Directory -Path "$stage/Sunless Skies_Data" | Out-Null
           Copy-Item README.md $stage
-          Copy-Item INSTALL_KOREAN_PATCH.bat $stage
           Copy-Item _release/publish/SunlessSkiesKoreanInstaller.exe $stage
           Copy-Item payload/font $stage
-          Copy-Item payload/BepInEx/Translation/ko/Text/*.txt "$stage/translations"
-          Copy-Item payload/BepInEx/Translation/ko/Text/*.txt "$stage/translation-source"
+          Copy-Item translations/*.txt "$stage/translations"
+          Copy-Item translations/*.txt "$stage/translation-source"
           Copy-Item payload/metadata_ui*.txt "$stage/translation-source"
           Copy-Item "payload/Sunless Skies_Data/*" "$stage/Sunless Skies_Data" -Recurse
           Compress-Archive -Path "$stage/*" -DestinationPath $zip -Force
