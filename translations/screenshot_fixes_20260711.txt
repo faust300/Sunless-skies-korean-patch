@@ -7,7 +7,7 @@ Locomotive captains gather at the bazaar to trade goods and information. Here, y
 New prospects available in 30 days.=새 거래 제안은 30일 후에 제공됩니다.
 Prospects available=이용 가능한 거래 제안
 Select this prospect to claim it.=이 거래 제안을 선택해 수락하세요.
-Port Avon lies to the east of New Winchester, and Magdalene's lies to the southeast of New Winchester.=포트 에이번은 뉴 윈체스터 동쪽에 있고, 막달렌은 뉴 윈체스터 남동쪽에 있습니다.
+Port Avon lies to the east of New Winchester, and Magdalene's lies to the southeast of New Winchester.=포트 에이번은 뉴 윈체스터 동쪽에 있고, 막달렌 병원은 뉴 윈체스터 남동쪽에 있습니다.
 The Reach=리치
 THE REACH=리치
 Company House=컴퍼니 하우스

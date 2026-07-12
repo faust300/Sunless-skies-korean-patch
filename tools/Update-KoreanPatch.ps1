@@ -11,8 +11,32 @@ $payloadDataDir = Join-Path $repoDir "payload\Sunless Skies_Data"
 $workDir = Join-Path $repoDir "_tmp_static_patch\batch"
 $reportDir = Join-Path $repoDir "docs"
 $patcherProject = Join-Path $repoDir "tools\UiAssetPatcher\UiAssetPatcher.csproj"
+$metadataPatcherProject = Join-Path $repoDir "tools\GlobalMetadataPatcher\GlobalMetadataPatcher.csproj"
 $installerProject = Join-Path $repoDir "tools\SunlessSkiesKoreanInstaller\SunlessSkiesKoreanInstaller.csproj"
-$assets = @("resources.assets", "level4", "level5", "level16", "level24")
+$metadataTranslations = Join-Path $repoDir "payload\metadata_scout.txt"
+$assets = @(
+    "resources.assets",
+    "sharedassets3.assets",
+    "level0",
+    "level3",
+    "level4",
+    "level5",
+    "level6",
+    "level7",
+    "level9",
+    "level10",
+    "level11",
+    "level12",
+    "level13",
+    "level14",
+    "level16",
+    "level17",
+    "level20",
+    "level21",
+    "level22",
+    "level23",
+    "level24"
+)
 
 if (-not (Test-Path (Join-Path $GameDir "Sunless Skies.exe"))) {
     throw "Sunless Skies game folder not found: $GameDir"
@@ -23,6 +47,8 @@ New-Item -ItemType Directory -Force -Path $workDir, $reportDir, $payloadDataDir 
 Write-Host "[1/5] Building patch tools..."
 dotnet build $patcherProject -c Release --no-restore
 if ($LASTEXITCODE -ne 0) { throw "UiAssetPatcher build failed." }
+dotnet build $metadataPatcherProject -c Release --no-restore
+if ($LASTEXITCODE -ne 0) { throw "GlobalMetadataPatcher build failed." }
 dotnet build $installerProject -c Release --no-restore
 if ($LASTEXITCODE -ne 0) { throw "Installer build failed." }
 
@@ -46,6 +72,15 @@ foreach ($asset in $assets) {
     Copy-Item -LiteralPath $outputPath -Destination (Join-Path $payloadDataDir $asset) -Force
     $reports += [PSCustomObject]@{ Asset = $asset; Path = $reportPath }
 }
+
+$metadataInput = Join-Path $dataDir "il2cpp_data\Metadata\global-metadata.dat"
+$metadataOutput = Join-Path $workDir "global-metadata.dat"
+$metadataPayload = Join-Path $payloadDataDir "il2cpp_data\Metadata\global-metadata.dat"
+dotnet run --project $metadataPatcherProject -c Release --no-build -- `
+    $metadataInput $metadataOutput $metadataTranslations
+if ($LASTEXITCODE -ne 0) { throw "Global metadata patch failed." }
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent $metadataPayload) | Out-Null
+Copy-Item -LiteralPath $metadataOutput -Destination $metadataPayload -Force
 
 Write-Host "[3/5] Building review report..."
 $developerPattern = '^(?:A label name:?|a+|Body\. It''s the body text|Dr Random|Header|Hello World|Here is where the AvailableAt|Label|label|New Text|One way to do it|TEST|Testing testing|TestTest|Text text|The smoggy, clankingx|This is (?:headerline|placeholder|standard|the body)|Tip description|title|VERSION VERSION|Warning body)'

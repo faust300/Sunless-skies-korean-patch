@@ -16,6 +16,8 @@
 | House of Rods and Chains | 회초리와 사슬의 집 |
 | Correspondence | 서신 |
 | Promise of Days | 약속의 날들 |
+| Driver | 기관사 |
+| Scout | 정찰대 |
 | zailor | 뱃사람 |
 | zee-captain | 바다 선장 |
 

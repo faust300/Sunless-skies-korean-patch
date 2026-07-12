@@ -9,10 +9,10 @@ Ministry agents patrol the bridges. Their heavy boots thunder over the market, w
 A sprawling market under the arches, thronged with bustling crowds and peopled by unscrupulous merchants. [This shop will only be open so long as the Tacketies have a hold in New Winchester.]=아치 아래로 넓게 펼쳐진 시장입니다. 북적이는 군중과 양심 없는 상인들로 가득합니다. [태커티가 뉴 윈체스터에 거점을 유지하는 동안에만 이 상점이 열립니다.]
 New Winchester Market=뉴 윈체스터 시장
 Victoria Market=빅토리아 시장
-<b>Magdalene's</b> provides comfort and sympathy to the weary skyfarer. Its hosts will tell you any lie you need to hear. Some of those lies require flowers. The Amenable Host wants up to <b>three sacks of Verdant Seeds</b>, and will pay eighty sovereigns for each. [dir:21004c53-ad6e-43e4-8df4-0230da3e87e6].=<b>막달렌</b>은 지친 하늘 항해자에게 위안과 공감을 제공합니다. 그곳의 주인들은 당신이 들어야 할 거짓말이라면 무엇이든 들려줄 것입니다. 그 거짓말 중 일부에는 꽃이 필요합니다. 상냥한 주인은 <b>신록의 씨앗 세 자루</b>까지 원하며, 자루마다 80소버린을 지불할 것입니다. [dir:21004c53-ad6e-43e4-8df4-0230da3e87e6].
-Magdalene's needs fresh flowers.=막달렌에는 싱싱한 꽃이 필요합니다.
-[ALWAYS]Seeds for Magdalene's=[항상]막달렌으로 보낼 씨앗
-Seeds for Magdalene's=막달렌으로 보낼 씨앗
+<b>Magdalene's</b> provides comfort and sympathy to the weary skyfarer. Its hosts will tell you any lie you need to hear. Some of those lies require flowers. The Amenable Host wants up to <b>three sacks of Verdant Seeds</b>, and will pay eighty sovereigns for each. [dir:21004c53-ad6e-43e4-8df4-0230da3e87e6].=<b>막달렌 병원</b>은 지친 하늘 항해자에게 위안과 공감을 제공합니다. 그곳의 주인들은 당신이 들어야 할 거짓말이라면 무엇이든 들려줄 것입니다. 그 거짓말 중 일부에는 꽃이 필요합니다. 상냥한 주인은 <b>신록의 씨앗 세 자루</b>까지 원하며, 자루마다 80소버린을 지불할 것입니다. [dir:21004c53-ad6e-43e4-8df4-0230da3e87e6].
+Magdalene's needs fresh flowers.=막달렌 병원에는 싱싱한 꽃이 필요합니다.
+[ALWAYS]Seeds for Magdalene's=[항상]막달렌 병원으로 보낼 씨앗
+Seeds for Magdalene's=막달렌 병원으로 보낼 씨앗
 'Attention! The Annual Allotment Competition Looms on <b>Port Avon</b>. <b>Up to three Sacks of Verdant Seeds</b> required urgently! Deliver to the vicar at the Nowhere Inn as soon as possible, if not before!' [dir:89aff93f-4b2e-4e03-bb41-d6054a84c5ee].='주목! <b>포트 에이번</b>의 연례 텃밭 대회가 다가옵니다. <b>신록의 씨앗 최대 세 자루</b>가 급히 필요합니다! 가능한 한 빨리, 아니 그보다 더 빨리 노웨어 여관의 목사에게 배달하십시오!' [dir:89aff93f-4b2e-4e03-bb41-d6054a84c5ee].
 The Admiral's China: Crockery for Port Avon=제독의 도자기: 포트 에이번으로 보낼 식기
 The Summerset students camped in the dark wood require fresh material for their continued studies, entertainment, and occasionally, roughage. They've requested <b>five consignments of Ministry-Approved Literature</b>. [dir:660ff730-50ea-4190-8210-a232c6e7b087].=어두운 숲에 야영 중인 서머셋 학생들은 계속되는 연구와 오락, 그리고 가끔은 섬유질 섭취를 위해 신선한 자료를 필요로 합니다. 그들은 <b>부처 승인 문학 다섯 묶음</b>을 요청했습니다. [dir:660ff730-50ea-4190-8210-a232c6e7b087].
@@ -32,4 +32,4 @@ An 'orticultural Opportunity: a Buoyant Broker is selling Sacks of Verdant Seeds
 A Florid Landscapist is planning a modest floral garden in <b>Titania</b> to commemorate the birthday of whatever dead artist, composer or poet is currently in vogue. She requires <b>Verdant Seeds</b>, and lots of them. <b>Five sacks</b>, to be exact. [dir:7f7247f1-34b4-4f57-95d8-d482105edcb2].=화려한 조경가는 요즘 유행하는 어느 죽은 예술가, 작곡가, 혹은 시인의 생일을 기념하기 위해 <b>티타니아</b>에 소박한 꽃밭을 꾸미려 합니다. 그녀에게는 <b>신록의 씨앗</b>이 필요합니다. 아주 많이요. 정확히는 <b>다섯 자루</b>입니다. [dir:7f7247f1-34b4-4f57-95d8-d482105edcb2].
 "That should do it!" the Florid Landscapist declares. She stores the sacks carefully away from any sources of water, for the flora of the Reach is dangerously ebullient when nourished. "Impeccable service. Please accept this additional compensation."="이 정도면 되겠군요!" 화려한 조경가가 선언합니다. 리치의 식물은 물을 먹으면 위험할 정도로 왕성해지기 때문에, 그녀는 자루들을 물기에서 조심스레 멀리 보관합니다. "흠잡을 데 없는 서비스였습니다. 이 추가 보수도 받아 주세요."
 The Attendant takes the gourds from you. "Thank you. Many here need to speak in voices that are not our own, and chorister nectar works wonders upon the vocal chords." He smiles warmly. "Why don't you stay a while? Enjoy the facilities?"=시종이 당신에게서 박을 받아 듭니다. "감사합니다. 이곳의 많은 이들은 자기 것이 아닌 목소리로 말해야 하고, 성가대원의 감로는 성대에 놀라운 효과를 내지요." 그가 따뜻하게 웃습니다. "잠시 머물다 가시는 건 어떻습니까? 시설도 즐기시고요."
-Nectar for Magdalene's=막달렌으로 보낼 감로
+Nectar for Magdalene's=막달렌 병원으로 보낼 감로

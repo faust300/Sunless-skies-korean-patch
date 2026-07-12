@@ -1,0 +1,10 @@
+<i>Your scout has discovered something.</i>=<i>정찰대가 무언가를 발견했습니다.</i>
+Are you sure that you want to permanently delete this save file?=이 저장 파일을 영구적으로 삭제하시겠습니까?
+Are you sure you want to save and\nreturn to the title screen?=저장한 뒤 타이틀 화면으로\n돌아가시겠습니까?
+Delete Save File=저장 파일 삭제
+\n<b>Last saved:</b> =\n<b>마지막 저장:</b> 
+Choose an ambition.=야망을 선택하세요.
+Boldly done! You have chosen an Ambition! <strong>{0}</strong>=과감한 선택입니다! 야망을 선택했습니다! <strong>{0}</strong>
+That item does not fit in this equipment slot.=이 물품은 해당 장비 슬롯에 장착할 수 없습니다.
+LaunchScout error: You do not have enough supplies!=정찰대를 보낼 수 없습니다. 보급품이 부족합니다!
+)\n\nThe more you carry, the faster your engine consumes fuel.=)\n\n화물을 많이 실을수록 기관차가 연료를 더 빠르게 소모합니다.

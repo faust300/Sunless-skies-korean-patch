@@ -17,7 +17,7 @@ The frantic, hustling heart of Lustrum, crammed with prospectors, pedlars, and p
 Prospector's Quarter=탐사꾼 지구
 Crammed at the feet of a hulking crag, Port Prosper is a little London – divided into an affluent West End and an impecunious East. Queen's Cross is a busy station, crowded with engines that have arrived through the nearby transit relay from Albion.=거대한 바위산 아래 빽빽이 들어선 포트 프로스퍼는 작은 런던이다. 부유한 웨스트엔드와 빈궁한 동쪽으로 나뉘어 있다. 퀸스 크로스는 인근의 알비온 통과 중계로 도착한 기관차들로 붐비는 번잡한 역이다.
 Queen's Cross Station=퀸스 크로스 역
-Magdalene's is the closest thing many skyfarers have to a home. It offers services to alleviate the strain of a life spent too close to the stars.=막달렌은 많은 하늘항해자들에게 집이라 부를 만한 가장 가까운 곳이다. 별들에 너무 가까이 머물며 살아가는 삶의 부담을 덜어 주는 서비스를 제공한다.
+Magdalene's is the closest thing many skyfarers have to a home. It offers services to alleviate the strain of a life spent too close to the stars.=막달렌 병원은 많은 하늘항해자들에게 집이라 부를 만한 가장 가까운 곳이다. 별들에 너무 가까이 머물며 살아가는 삶의 부담을 덜어 주는 서비스를 제공한다.
 The House of Small Comfort=작은 위안의 집
 A fledgling colony trying to dig its fingernails deep enough into the spongy, fungal fabric of the Reach to cling on when hard times come. It is a sad truth that many more settlements are founded than flourish.=이 신생 식민지는 리치의 해면질 곰팡이 같은 바탕에 손톱을 깊이 박아 넣어, 고난이 닥쳐도 매달리려 애쓴다. 세워지는 정착지보다 번성하는 정착지가 훨씬 적다는 것은 슬픈 진실이다.
 Hybras=하이브라스

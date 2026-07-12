@@ -12,6 +12,7 @@
 
 - 설치기: `tools/SunlessSkiesKoreanInstaller/`
 - 정적 UI 패처: `tools/UiAssetPatcher/`
+- IL2CPP 문자열 패처: `tools/GlobalMetadataPatcher/`
 - 조사 및 실험 도구: `tools/experimental/`
 - 번역 사전: `translations/`
 - 배포 자료: `payload/`

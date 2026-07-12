@@ -10,7 +10,7 @@ Food and equipment. If you run out, hunger will take you.\n\nWeight: 5=음식과
 16th Mar 1905=1905년 3월 16일
 <size\=75%>March 16th, 1905</size>\n일등항해사로서, 선원들은 당신을 바라보고 있습니다. 가장 가까운 역은 뉴 윈체스터입니다. <i>오르페안</i>을 그곳까지 무사히 데려갈 수 있을까요?=<size\=75%>1905년 3월 16일</size>\n일등항해사로서, 선원들은 당신을 바라보고 있습니다. 가장 가까운 역은 뉴 윈체스터입니다. <i>오르페안</i>을 그곳까지 무사히 데려갈 수 있을까요?
 <size\=75%>March 16th, 1905</size>\nMuch to the relief of your stokers, you find a barrel of fuel among the detritus.=<size\=75%>1905년 3월 16일</size>\n화부들에게는 다행스러운 일이지만 잔해 속에서 연료통을 발견하게 되었습니다.
-<size\=75%>March 18th, 1905</size>\nYour scout returns. What has it found?=<size\=75%>1905년 3월 18일</size>\n스카우트가 돌아왔습니다.\n무엇을 발견했나요?
+<size\=75%>March 18th, 1905</size>\nYour scout returns. What has it found?=<size\=75%>1905년 3월 18일</size>\n정찰대가 돌아왔습니다.\n무엇을 발견했나요?
 You've gained 5 x Hull (new total 27).=Hull이 5배 증가했습니다(새 총 27개).
 20th Mar 1905=1905년 3월 20일
 512 Experience Gained=512 경험치 획득
@@ -80,10 +80,10 @@ Good as new=새것처럼 좋아요
 The mechanics take pride in their work: your newly returned engine is not just fully repaired – it <i>gleams</i>. =정비사는 자신의 작업에 자부심을 느낍니다. 새로 반환된 엔진은 단지 완전히 수리된 것이 아닙니다. <i>빛난다</i>.
 A patch-job will keep you flying. For now.\r\n<style\="descriptive">Repair 10 Hull for 30 Sovereigns.</style>=패치 작업을 통해 계속해서 비행할 수 있습니다.\n지금은.\r\n<style\="descriptive">소버린 30명을 위해 선체 10개를 수리하세요.</style>
 You've lost 20 x Sovereigns (new total 111).=20 x Sovereigns(새 총 111개)을 잃었습니다.
-<i>You have recruited the Incautious Driver.</i>=<i>부주의한 운전자를 모집했습니다.</i>
+<i>You have recruited the Incautious Driver.</i>=<i>부주의한 기관사를 모집했습니다.</i>
 You unlocked this with 131 <b>Sovereigns</b> <i>(you needed 20)</i>=131로 잠금 해제했습니다. <b>소버린</b> <i>(20개 필요)</i>
 What harm can it do?\r\n<style\="descriptive">This will get you a Chief Engineer who will increase your Iron by 6, your Hearts by 2 and your Affiliation: Establishment by 1.</style>=어떤 해를 끼칠 수 있습니까?\r\n<style\="descriptive">이를 통해 철을 6, 심장을 2, 소속: 확립을 1 증가시키는 수석 엔지니어를 얻을 수 있습니다.</style>
-"I specialise in test-driving, but I'm looking for something quieter." The Driver indicates a crashed engine, still smoking. "Like that. Without the screaming."\r\n\r\n<style\="descriptive">Officers require a sign-on fee.</style>="저는 시운전을 전문으로 하지만 좀 더 조용한 것을 찾고 있어요."\n운전자는 엔진이 충돌했고 여전히 연기가 나고 있다고 말합니다.\n"그렇게요. 비명소리 없이요."\r\n\r\n<style\="descriptive">임원은 가입비를 요구합니다.</style>
+"I specialise in test-driving, but I'm looking for something quieter." The Driver indicates a crashed engine, still smoking. "Like that. Without the screaming."\r\n\r\n<style\="descriptive">Officers require a sign-on fee.</style>="저는 시운전을 전문으로 하지만 좀 더 조용한 것을 찾고 있어요."\n기관사는 엔진이 충돌했고 여전히 연기가 나고 있다고 말합니다.\n"그렇게요. 비명소리 없이요."\r\n\r\n<style\="descriptive">임원은 가입비를 요구합니다.</style>
 Go elsewhere in New Winchester.=뉴 윈체스터의 다른 곳으로 가세요.
 Fully repair your hull=선체를 완전히 수리하세요
 Level: 1\nExperience: 854/1000\nFacets to take: 0\n\n<b><i>Click to view facets</i></b>=레벨: 1 경험치: 854/1000 획득할 패싯: 0\n\n<b><i>패싯을 보려면 클릭하세요.</i></b>
@@ -98,4 +98,4 @@ The Prodigal Sun=방탕한 태양
 The Sahaquiel=사하퀴엘
 The Tervonen=테르보넨
 An Opportunity: Learn about trading=기회: 거래에 대해 알아보기
-<i>Go to the Bazaar using the area list on the left, and accept the 'Seeds to Magdalene's' prospect.</i>=<i>왼쪽의 지역 목록을 이용하여 바자회에 가서 '막달레나의 씨앗' 유망주를 수락하세요.</i>
+<i>Go to the Bazaar using the area list on the left, and accept the 'Seeds to Magdalene's' prospect.</i>=<i>왼쪽의 지역 목록을 이용하여 바자회에 가서 '막달렌 병원의 씨앗' 유망주를 수락하세요.</i>

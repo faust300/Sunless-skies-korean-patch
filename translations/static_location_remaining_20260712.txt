@@ -1,0 +1,10 @@
+The \nBinding Tables=결속의\n서판
+The \nForegone Arch=지나간 것의\n아치
+The \nWhistling Apse=휘파람 부는\n후진
+The Gentlemen\n=젠틀맨\n
+The\nGentleman's Grave=신사의\n무덤
+The\nMost Serene Mausoleum=가장\n고요한 영묘
+The Stair\nto the Sea=바다로 가는\n계단
+Flotsam and jetsam, spilled from some lost locomotive. Perhaps you can salvage something useful.=잃어버린 기관차에서 흘러나온 표류 잔해입니다. 쓸 만한 것을 건질 수 있을지도 모릅니다.
+The captain's condition is worsening.=선장의 상태가 악화되고 있습니다.
+Thrust:\nBrake:\nSteer:=추진:\n제동:\n조향:
