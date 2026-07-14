@@ -32,6 +32,8 @@ jobs:
             --self-contained true `
             -p:PublishSingleFile=true `
             -p:IncludeNativeLibrariesForSelfExtract=true `
+            -p:PublishTrimmed=true `
+            -p:TrimMode=full `
             -o _release/publish
           Get-ChildItem _release/publish | Format-Table Name, Length
 
@@ -47,14 +49,33 @@ jobs:
           New-Item -ItemType Directory -Path $stage | Out-Null
           New-Item -ItemType Directory -Path "$stage/translations" | Out-Null
           New-Item -ItemType Directory -Path "$stage/translation-source" | Out-Null
-          New-Item -ItemType Directory -Path "$stage/Sunless Skies_Data" | Out-Null
+          New-Item -ItemType Directory -Path "$stage/delta" | Out-Null
           Copy-Item README.md $stage
           Copy-Item _release/publish/SunlessSkiesKoreanInstaller.exe $stage
           Copy-Item payload/font $stage
           Copy-Item translations/*.txt "$stage/translations"
           Copy-Item translations/*.txt "$stage/translation-source"
           Copy-Item payload/metadata_ui*.txt "$stage/translation-source"
-          Copy-Item "payload/Sunless Skies_Data/*" "$stage/Sunless Skies_Data" -Recurse
+          Copy-Item payload/delta/* "$stage/delta"
+
+          $xdeltaVersion = "3.2.0"
+          $xdeltaArchive = "_release/xdelta3-$xdeltaVersion.zip"
+          $xdeltaUrl = "https://github.com/jmacd/xdelta/releases/download/v$xdeltaVersion/xdelta3-$xdeltaVersion-windows-x86_64.zip"
+          $xdeltaSha256 = "af8ef036cb077a48df080c9a8ac1be4a6e7511c32d11f8bec89b6803a9e52576"
+          Invoke-WebRequest -Uri $xdeltaUrl -OutFile $xdeltaArchive
+          $actualXdeltaHash = (Get-FileHash -Algorithm SHA256 $xdeltaArchive).Hash.ToLowerInvariant()
+          if ($actualXdeltaHash -ne $xdeltaSha256) {
+            throw "xdelta3 archive SHA-256 mismatch: $actualXdeltaHash"
+          }
+          $xdeltaExtract = "_release/xdelta3-$xdeltaVersion"
+          Expand-Archive -Path $xdeltaArchive -DestinationPath $xdeltaExtract -Force
+          $xdeltaExe = Get-ChildItem $xdeltaExtract -Filter xdelta3.exe -Recurse | Select-Object -First 1
+          $xdeltaReadme = Get-ChildItem $xdeltaExtract -Filter README.md -Recurse | Select-Object -First 1
+          if (-not $xdeltaExe -or -not $xdeltaReadme) {
+            throw "xdelta3 release contents are incomplete."
+          }
+          Copy-Item $xdeltaExe.FullName "$stage/xdelta3.exe"
+          Copy-Item $xdeltaReadme.FullName "$stage/XDELTA3-NOTICE.md"
           Compress-Archive -Path "$stage/*" -DestinationPath $zip -Force
           Get-Item $zip | Format-List Name, Length
 

@@ -25,4 +25,4 @@ Fuel=연료
  barrels in hold. =배럴 보유. 
 % remaining in current barrel.=% 남음.
 March=3월
-{0:MMMM} {1}{2}, {0:yyyy}={0:yyyy}년 {0:M}월 {1}일
+{1}{2} {0:MMM} {0:yyyy}={0:yyyy}년 {0:%M}월 {1}일

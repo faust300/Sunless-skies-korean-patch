@@ -48,8 +48,8 @@ foreach (var info in file.AssetInfos.Where(static info => info.TypeId == 114))
     {
         var root = manager.GetBaseField(instance, info);
         var textFields = EnumerateFields(root)
-            .Where(static field => field.TemplateField.ValueType == AssetValueType.String &&
-                field.FieldName is "m_text" or "Message")
+            .Where(field => field.TemplateField.ValueType == AssetValueType.String &&
+                IsTranslatableTextField(info.PathId, field.FieldName))
             .ToList();
         if (textFields.Count == 0)
         {
@@ -183,6 +183,10 @@ static IEnumerable<AssetTypeValueField> EnumerateFields(AssetTypeValueField fiel
         }
     }
 }
+
+static bool IsTranslatableTextField(long pathId, string fieldName) =>
+    fieldName is "m_text" or "Message" ||
+    pathId == 41666 && fieldName == "data";
 
 static bool LooksLikeUntranslatedEnglish(string value)
 {

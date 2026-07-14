@@ -1,4 +1,7 @@
+using System.Diagnostics;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using AssetsTools.NET;
 using AssetsTools.NET.Extra;
 
@@ -14,6 +17,7 @@ try
     var gameDataDir = Path.Combine(gameDir, "Sunless Skies_Data");
     var resourcesAssetsPath = Path.Combine(gameDataDir, "resources.assets");
     var packagedAssetsDir = ResolvePackagedAssetsDir(appDir);
+    var deltaPackage = ResolveDeltaPackage(appDir);
     var fontPath = Path.Combine(gameDir, "font");
     var packagedFontPath = ResolvePackagedFont(appDir);
     var fontSourcePath = options.PatchFont ? packagedFontPath ?? (File.Exists(fontPath) ? fontPath : null) : null;
@@ -77,21 +81,28 @@ try
         Path.Combine("il2cpp_data", "Metadata", "global-metadata.dat")
     };
     var packagedResourcesInstalled = false;
-    foreach (var assetName in packagedAssetNames)
+    if (deltaPackage is not null)
     {
-        var packagedPath = packagedAssetsDir is null ? null : Path.Combine(packagedAssetsDir, assetName);
-        if (packagedPath is not null && !File.Exists(packagedPath))
+        total += InstallBinaryDeltas(deltaPackage, gameDataDir, backupRoot, options.DryRun);
+    }
+    else
+    {
+        foreach (var assetName in packagedAssetNames)
         {
-            packagedPath = null;
-        }
+            var packagedPath = packagedAssetsDir is null ? null : Path.Combine(packagedAssetsDir, assetName);
+            if (packagedPath is not null && !File.Exists(packagedPath))
+            {
+                packagedPath = null;
+            }
 
-        total += InstallPackagedFile(
-            "StaticAssets",
-            Path.Combine(gameDataDir, assetName),
-            packagedPath,
-            backupRoot,
-            options.DryRun);
-        packagedResourcesInstalled |= assetName == "resources.assets" && packagedPath is not null;
+            total += InstallPackagedFile(
+                "StaticAssets",
+                Path.Combine(gameDataDir, assetName),
+                packagedPath,
+                backupRoot,
+                options.DryRun);
+            packagedResourcesInstalled |= assetName == "resources.assets" && packagedPath is not null;
+        }
     }
 
     if (options.PatchResources && !packagedResourcesInstalled)
@@ -107,7 +118,12 @@ try
     total += InstallPackagedFile("FontAssetBundle", fontPath, packagedFontPath, backupRoot, options.DryRun);
     total += PatchDataDirectory("InstallData", installDataDir, backupRoot, options.DryRun, translations);
 
-    if (localDataDirs.Count > 0)
+    if (options.SkipLocalData)
+    {
+        Console.WriteLine("LocalLowStorage: skipped by option.");
+        Console.WriteLine();
+    }
+    else if (localDataDirs.Count > 0)
     {
         foreach (var localDataDir in localDataDirs)
         {
@@ -220,10 +236,6 @@ static int PatchResourcesAssets(
         return replacements + fontPatches;
     }
 
-    var backupPath = Path.Combine(backupRoot, label, Path.GetFileName(resourcesAssetsPath));
-    Directory.CreateDirectory(Path.GetDirectoryName(backupPath)!);
-    File.Copy(resourcesAssetsPath, backupPath, overwrite: false);
-
     var tempPath = Path.Combine(Path.GetDirectoryName(resourcesAssetsPath)!, $"resources.assets.korean-patch-{Guid.NewGuid():N}.tmp");
     try
     {
@@ -233,7 +245,7 @@ static int PatchResourcesAssets(
             file.Write(writer);
         }
 
-        File.Copy(tempPath, resourcesAssetsPath, overwrite: true);
+        CommitTemporaryFile(resourcesAssetsPath, tempPath, backupRoot, label);
     }
     finally
     {
@@ -348,10 +360,7 @@ static int PatchDataDirectory(
             continue;
         }
 
-        var backupPath = Path.Combine(backupRoot, label, Path.GetFileName(sourcePath));
-        Directory.CreateDirectory(Path.GetDirectoryName(backupPath)!);
-        File.Copy(sourcePath, backupPath, overwrite: false);
-        File.WriteAllBytes(sourcePath, result.Bytes);
+        InstallBytesAtomically(sourcePath, result.Bytes, backupRoot, label);
     }
 
     Console.WriteLine($"{label} total: {total:N0}");
@@ -382,9 +391,7 @@ static int InstallPackagedFile(
     if (targetExists)
     {
         var targetInfo = new FileInfo(targetPath);
-        sameFile = targetInfo.Length == packagedInfo.Length &&
-            Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(File.ReadAllBytes(targetPath))) ==
-            Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(File.ReadAllBytes(packagedPath)));
+        sameFile = targetInfo.Length == packagedInfo.Length && FilesHaveSameHash(targetPath, packagedPath);
     }
 
     if (sameFile)
@@ -405,16 +412,208 @@ static int InstallPackagedFile(
         return 1;
     }
 
-    if (targetExists)
+    var tempPath = CreateTemporaryPath(targetPath);
+    try
+    {
+        File.Copy(packagedPath, tempPath, overwrite: false);
+        if (!FilesHaveSameHash(packagedPath, tempPath))
+        {
+            throw new IOException($"Temporary file verification failed: {targetPath}");
+        }
+
+        CommitTemporaryFile(targetPath, tempPath, backupRoot, label);
+    }
+    finally
+    {
+        DeleteTemporaryFile(tempPath);
+    }
+
+    return 1;
+}
+
+static int InstallBinaryDeltas(DeltaPackage package, string gameDataDir, string backupRoot, bool dryRun)
+{
+    Console.WriteLine($"BinaryDelta: {package.ManifestPath}");
+    var json = File.ReadAllText(package.ManifestPath, Encoding.UTF8);
+    var manifest = JsonSerializer.Deserialize(json, DeltaJsonContext.Default.DeltaManifest)
+        ?? throw new InvalidOperationException($"Invalid delta manifest: {package.ManifestPath}");
+    if (manifest.FormatVersion != 1 || manifest.Files.Count == 0)
+    {
+        throw new InvalidOperationException($"Unsupported or empty delta manifest: {package.ManifestPath}");
+    }
+
+    var total = 0;
+    foreach (var entry in manifest.Files)
+    {
+        var targetPath = ResolvePackagePath(gameDataDir, entry.Path);
+        var deltaPath = ResolvePackagePath(package.DeltaDirectory, entry.DeltaPath);
+        if (!File.Exists(targetPath))
+        {
+            throw new InvalidOperationException($"Game file not found: {entry.Path}");
+        }
+        if (!File.Exists(deltaPath))
+        {
+            throw new InvalidOperationException($"Delta file not found: {entry.DeltaPath}");
+        }
+
+        var currentHash = ComputeSha256(targetPath);
+        if (currentHash.Equals(entry.TargetSha256, StringComparison.OrdinalIgnoreCase))
+        {
+            Console.WriteLine($"  {entry.Path,-46} already installed");
+            continue;
+        }
+        if (!currentHash.Equals(entry.SourceSha256, StringComparison.OrdinalIgnoreCase))
+        {
+            throw new InvalidOperationException(
+                $"Unsupported game version: {entry.Path}{Environment.NewLine}" +
+                $"Expected SHA-256: {entry.SourceSha256}{Environment.NewLine}" +
+                $"Actual SHA-256:   {currentHash}");
+        }
+
+        Console.WriteLine($"  {entry.Path,-46} {(dryRun ? "would patch" : "patching")}");
+        total++;
+        if (dryRun)
+        {
+            continue;
+        }
+
+        var tempPath = CreateTemporaryPath(targetPath);
+        try
+        {
+            RunXdelta(package.XdeltaPath, targetPath, deltaPath, tempPath);
+            var resultHash = ComputeSha256(tempPath);
+            if (!resultHash.Equals(entry.TargetSha256, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new IOException(
+                    $"Delta result verification failed: {entry.Path}{Environment.NewLine}" +
+                    $"Expected SHA-256: {entry.TargetSha256}{Environment.NewLine}" +
+                    $"Actual SHA-256:   {resultHash}");
+            }
+            if (entry.TargetSize >= 0 && new FileInfo(tempPath).Length != entry.TargetSize)
+            {
+                throw new IOException($"Delta result size verification failed: {entry.Path}");
+            }
+
+            CommitTemporaryFile(targetPath, tempPath, backupRoot, "BinaryDelta");
+        }
+        finally
+        {
+            DeleteTemporaryFile(tempPath);
+        }
+    }
+
+    Console.WriteLine($"BinaryDelta total: {total:N0}");
+    Console.WriteLine();
+    return total;
+}
+
+static void RunXdelta(string executablePath, string sourcePath, string deltaPath, string outputPath)
+{
+    var startInfo = new ProcessStartInfo(executablePath)
+    {
+        UseShellExecute = false,
+        RedirectStandardOutput = true,
+        RedirectStandardError = true,
+        CreateNoWindow = true
+    };
+    startInfo.ArgumentList.Add("-d");
+    startInfo.ArgumentList.Add("-s");
+    startInfo.ArgumentList.Add(sourcePath);
+    startInfo.ArgumentList.Add(deltaPath);
+    startInfo.ArgumentList.Add(outputPath);
+
+    using var process = Process.Start(startInfo)
+        ?? throw new InvalidOperationException("Failed to start xdelta3.");
+    var standardOutput = process.StandardOutput.ReadToEnd();
+    var standardError = process.StandardError.ReadToEnd();
+    process.WaitForExit();
+    if (process.ExitCode != 0)
+    {
+        throw new InvalidOperationException(
+            $"xdelta3 failed with exit code {process.ExitCode}.{Environment.NewLine}" +
+            $"{standardError}{standardOutput}".Trim());
+    }
+}
+
+static string ResolvePackagePath(string root, string relativePath)
+{
+    if (string.IsNullOrWhiteSpace(relativePath) || Path.IsPathRooted(relativePath))
+    {
+        throw new InvalidOperationException($"Invalid package path: {relativePath}");
+    }
+
+    var fullRoot = Path.GetFullPath(root).TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;
+    var fullPath = Path.GetFullPath(Path.Combine(fullRoot, relativePath.Replace('/', Path.DirectorySeparatorChar)));
+    if (!fullPath.StartsWith(fullRoot, StringComparison.OrdinalIgnoreCase))
+    {
+        throw new InvalidOperationException($"Package path escapes its root: {relativePath}");
+    }
+    return fullPath;
+}
+
+static string ComputeSha256(string path)
+{
+    using var stream = File.OpenRead(path);
+    return Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(stream)).ToLowerInvariant();
+}
+
+static void InstallBytesAtomically(string targetPath, byte[] contents, string backupRoot, string label)
+{
+    var tempPath = CreateTemporaryPath(targetPath);
+    try
+    {
+        File.WriteAllBytes(tempPath, contents);
+        var expectedHash = System.Security.Cryptography.SHA256.HashData(contents);
+        using var tempStream = File.OpenRead(tempPath);
+        var actualHash = System.Security.Cryptography.SHA256.HashData(tempStream);
+        if (!expectedHash.AsSpan().SequenceEqual(actualHash))
+        {
+            throw new IOException($"Temporary file verification failed: {targetPath}");
+        }
+
+        CommitTemporaryFile(targetPath, tempPath, backupRoot, label);
+    }
+    finally
+    {
+        DeleteTemporaryFile(tempPath);
+    }
+}
+
+static void CommitTemporaryFile(string targetPath, string tempPath, string backupRoot, string label)
+{
+    if (File.Exists(targetPath))
     {
         var backupPath = Path.Combine(backupRoot, label, Path.GetFileName(targetPath));
         Directory.CreateDirectory(Path.GetDirectoryName(backupPath)!);
         File.Copy(targetPath, backupPath, overwrite: false);
     }
 
-    File.Copy(packagedPath, targetPath, overwrite: true);
+    File.Move(tempPath, targetPath, overwrite: true);
+}
 
-    return 1;
+static string CreateTemporaryPath(string targetPath)
+{
+    var directory = Path.GetDirectoryName(targetPath)
+        ?? throw new InvalidOperationException($"Target file has no parent directory: {targetPath}");
+    Directory.CreateDirectory(directory);
+    return Path.Combine(directory, $".{Path.GetFileName(targetPath)}.korean-patch-{Guid.NewGuid():N}.tmp");
+}
+
+static bool FilesHaveSameHash(string firstPath, string secondPath)
+{
+    using var first = File.OpenRead(firstPath);
+    using var second = File.OpenRead(secondPath);
+    var firstHash = System.Security.Cryptography.SHA256.HashData(first);
+    var secondHash = System.Security.Cryptography.SHA256.HashData(second);
+    return firstHash.AsSpan().SequenceEqual(secondHash);
+}
+
+static void DeleteTemporaryFile(string path)
+{
+    if (File.Exists(path))
+    {
+        File.Delete(path);
+    }
 }
 
 static string ResolveTranslationDir(string appDir, string? explicitPath)
@@ -478,6 +677,35 @@ static string? ResolvePackagedAssetsDir(string appDir)
         }
     }
 
+    return null;
+}
+
+static DeltaPackage? ResolveDeltaPackage(string appDir)
+{
+    var candidates = new[]
+    {
+        Path.Combine(appDir, "delta"),
+        Path.Combine(appDir, "payload", "delta"),
+        Path.Combine(Directory.GetCurrentDirectory(), "payload", "delta")
+    };
+    foreach (var directory in candidates.Distinct(StringComparer.OrdinalIgnoreCase))
+    {
+        var manifestPath = Path.Combine(directory, "manifest.json");
+        if (!File.Exists(manifestPath))
+        {
+            continue;
+        }
+
+        var xdeltaCandidates = new[]
+        {
+            Path.Combine(appDir, "xdelta3.exe"),
+            Path.Combine(directory, "xdelta3.exe"),
+            Path.Combine(Directory.GetCurrentDirectory(), "xdelta3.exe")
+        };
+        var xdeltaPath = xdeltaCandidates.FirstOrDefault(File.Exists)
+            ?? throw new InvalidOperationException("Delta package was found, but xdelta3.exe is missing.");
+        return new DeltaPackage(directory, manifestPath, xdeltaPath);
+    }
     return null;
 }
 
@@ -839,7 +1067,7 @@ static bool LooksLikeText(string value)
 readonly record struct PatchResult(byte[] Bytes, int Replacements);
 readonly record struct FontTarget(string Name, long MaterialPathId, long AtlasPathId, long FontPathId);
 
-sealed record Options(string? GameDir, string? TranslationDir, bool DryRun, bool PatchResources, bool PatchFont)
+sealed record Options(string? GameDir, string? TranslationDir, bool DryRun, bool PatchResources, bool PatchFont, bool SkipLocalData)
 {
     public static Options Parse(string[] args)
     {
@@ -848,6 +1076,7 @@ sealed record Options(string? GameDir, string? TranslationDir, bool DryRun, bool
         var dryRun = false;
         var patchResources = false;
         var patchFont = false;
+        var skipLocalData = false;
 
         for (var i = 0; i < args.Length; i++)
         {
@@ -868,6 +1097,9 @@ sealed record Options(string? GameDir, string? TranslationDir, bool DryRun, bool
                 case "--patch-font":
                     patchFont = true;
                     break;
+                case "--skip-local-data":
+                    skipLocalData = true;
+                    break;
                 case "--help":
                 case "-h":
                     PrintHelp();
@@ -878,7 +1110,7 @@ sealed record Options(string? GameDir, string? TranslationDir, bool DryRun, bool
             }
         }
 
-        return new Options(gameDir, translationDir, dryRun, patchResources, patchFont);
+        return new Options(gameDir, translationDir, dryRun, patchResources, patchFont, skipLocalData);
     }
 
     static void PrintHelp()
@@ -891,7 +1123,26 @@ sealed record Options(string? GameDir, string? TranslationDir, bool DryRun, bool
         Console.WriteLine("  --dry-run                 Count replacements without changing files");
         Console.WriteLine("  --patch-resources         Experimental resources.assets string replacement");
         Console.WriteLine("  --patch-font              Experimental TMP font asset replacement");
+        Console.WriteLine("  --skip-local-data         Skip the LocalLow storage copy");
     }
+}
+
+sealed record DeltaPackage(string DeltaDirectory, string ManifestPath, string XdeltaPath);
+
+sealed record DeltaManifest(
+    [property: JsonPropertyName("formatVersion")] int FormatVersion,
+    [property: JsonPropertyName("files")] List<DeltaFileEntry> Files);
+
+sealed record DeltaFileEntry(
+    [property: JsonPropertyName("path")] string Path,
+    [property: JsonPropertyName("deltaPath")] string DeltaPath,
+    [property: JsonPropertyName("sourceSha256")] string SourceSha256,
+    [property: JsonPropertyName("targetSha256")] string TargetSha256,
+    [property: JsonPropertyName("targetSize")] long TargetSize);
+
+[JsonSerializable(typeof(DeltaManifest))]
+internal partial class DeltaJsonContext : JsonSerializerContext
+{
 }
 
 partial class Program
