@@ -1,4 +1,4 @@
-Pause Menu=일시정지 메뉴
+Pause Menu=일시정지
 Resume=계속하기
 Report a Bug (F8)=버그 신고 (F8)
 Report a Bug=버그 신고

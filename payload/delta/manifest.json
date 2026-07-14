@@ -258,7 +258,7 @@
                       "path":  "il2cpp_data/Metadata/global-metadata.dat",
                       "deltaPath":  "il2cpp_data_Metadata_global-metadata.dat.vcdiff",
                       "sourceSha256":  "812bc79797d82c1e3f348c1279e4d8c5031bf675a5bd243ae1dbe98e5332e772",
-                      "targetSha256":  "33e126f01cc00bc5ad50cbad9c79f16f4561a10e526cbe6d50e9ba6b0bac1c3b",
+                      "targetSha256":  "44d96d26fe3b5743f58b69ee9e28aeb7a8aa0248e5373b1cdfaf6e1cc089c833",
                       "targetSize":  12978506,
                       "sources":  [
                                       {

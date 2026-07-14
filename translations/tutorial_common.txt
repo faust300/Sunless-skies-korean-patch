@@ -88,3 +88,4 @@ Disable\nAdvice=조언\n비활성화
 Orphean=오르페안
 Report a bug (F8)=버그 신고 (F8)
 Pause Menu=일시정지
+일시정지 메뉴=일시정지

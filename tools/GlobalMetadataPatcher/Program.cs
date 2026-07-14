@@ -83,8 +83,27 @@ for (var entryOffset = literalTableOffset; entryOffset < literalTableOffset + li
     Console.WriteLine($"  {source} -> {target}");
 }
 
+var outputBytes = output.ToArray();
+foreach (var (source, target) in translations)
+{
+    if (!source.Any(static ch => ch >= 0xAC00 && ch <= 0xD7A3)) continue;
+    var sourceBytes = Encoding.UTF8.GetBytes(source);
+    var targetBytes = Encoding.UTF8.GetBytes(target);
+    if (targetBytes.Length > sourceBytes.Length) continue;
+
+    for (var offset = 0; offset <= outputBytes.Length - sourceBytes.Length; offset++)
+    {
+        if (!outputBytes.AsSpan(offset, sourceBytes.Length).SequenceEqual(sourceBytes)) continue;
+        targetBytes.CopyTo(outputBytes.AsSpan(offset));
+        outputBytes.AsSpan(offset + targetBytes.Length, sourceBytes.Length - targetBytes.Length).Clear();
+        patched++;
+        offset += sourceBytes.Length - 1;
+        Console.WriteLine($"  [raw] {source} -> {target}");
+    }
+}
+
 Directory.CreateDirectory(Path.GetDirectoryName(outputPath)!);
-File.WriteAllBytes(outputPath, output.ToArray());
+File.WriteAllBytes(outputPath, outputBytes);
 Console.WriteLine($"Patched literals: {patched}");
 Console.WriteLine($"Satisfied translations: {satisfied}/{translations.Count}");
 Console.WriteLine($"Written: {outputPath}");
