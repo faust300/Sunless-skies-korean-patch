@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <AssemblyName>SunlessSkiesKoreanInstaller</AssemblyName>
     <RootNamespace>SunlessSkiesKoreanInstaller</RootNamespace>
-    <Version>1.1.6</Version>
+    <Version>1.1.7</Version>
     <Authors>faust300</Authors>
     <Description>Standalone Korean patch installer for Sunless Skies.</Description>
   </PropertyGroup>

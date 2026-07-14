@@ -62,7 +62,7 @@ foreach (var info in file.AssetInfos.Where(static info => info.TypeId == 114))
             var source = textField.AsString;
             if (!translations.TryGetValue(source, out var target) || source == target)
             {
-                if (textField.FieldName == "m_text" && LooksLikeUntranslatedEnglish(source))
+                if (IsReportableDisplayField(info.PathId, textField.FieldName) && LooksLikeUntranslatedEnglish(source))
                 {
                     if (!untranslated.TryGetValue(source, out var pathIds))
                     {
@@ -185,8 +185,11 @@ static IEnumerable<AssetTypeValueField> EnumerateFields(AssetTypeValueField fiel
 }
 
 static bool IsTranslatableTextField(long pathId, string fieldName) =>
-    fieldName is "m_text" or "Message" ||
+    fieldName is "m_text" or "Message" or "LandmarkName" or "LandmarkDescription" ||
     pathId == 41666 && fieldName == "data";
+
+static bool IsReportableDisplayField(long pathId, string fieldName) =>
+    IsTranslatableTextField(pathId, fieldName);
 
 static bool LooksLikeUntranslatedEnglish(string value)
 {

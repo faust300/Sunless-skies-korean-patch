@@ -10,119 +10,249 @@
                       "deltaPath":  "level0.vcdiff",
                       "sourceSha256":  "c98e636541018d4038f891cc046b7ed9304ccba8b759184b5ffdc4ff54fc58e5",
                       "targetSha256":  "c9d9ad1272ddcb698153e4467c6f4aab1958a261517b0ace019a8b1dd64d6373",
-                      "targetSize":  69920
+                      "targetSize":  69920,
+                      "sources":  [
+
+                                  ]
                   },
                   {
                       "path":  "level10",
                       "deltaPath":  "level10.vcdiff",
                       "sourceSha256":  "23e365c31651a9caaca52f71d7fd23e9d17d034ad6c18ec9d6d6ed13070ac9a0",
-                      "targetSha256":  "49da4f51b4adf43c6fcd2ede4fe951db9be14a87ebac78128a16b4332d2076f0",
-                      "targetSize":  1547508
+                      "targetSha256":  "95684298107731cc2d9ede4906c80df4d569137f3752a1a6ae9ea7760b43fe39",
+                      "targetSize":  1547604,
+                      "sources":  [
+                                      {
+                                          "sourceSha256":  "49da4f51b4adf43c6fcd2ede4fe951db9be14a87ebac78128a16b4332d2076f0",
+                                          "deltaPath":  "level10.from-49da4f51b4ad.vcdiff"
+                                      }
+                                  ]
                   },
                   {
                       "path":  "level11",
                       "deltaPath":  "level11.vcdiff",
                       "sourceSha256":  "1993e110c1804a58a4dbf82d6bc8c45acab0636e93752191ea27be5d8976ba56",
-                      "targetSha256":  "218da86ee1c42dcf2818dcaf94e9fac28cd4390f323a3654c63ccb864e483bf6",
-                      "targetSize":  2769228
+                      "targetSha256":  "c4965bbb8c35dfbdf24e4aba7e621da7fabdd2343f53fbf25002d8f2063fe5b9",
+                      "targetSize":  2769372,
+                      "sources":  [
+                                      {
+                                          "sourceSha256":  "218da86ee1c42dcf2818dcaf94e9fac28cd4390f323a3654c63ccb864e483bf6",
+                                          "deltaPath":  "level11.from-218da86ee1c4.vcdiff"
+                                      }
+                                  ]
                   },
                   {
                       "path":  "level12",
                       "deltaPath":  "level12.vcdiff",
                       "sourceSha256":  "3cba95cc4d313a5545881169a602342a93b16f822df63e29dfef2325e7e6835f",
-                      "targetSha256":  "bc59f5672c5d371bd8759d12fcbb122ad32b41cbbecd41fdf5024d7a7baa8c1a",
-                      "targetSize":  2314532
+                      "targetSha256":  "2788724a112e2525c8769ebfe4c9d2724747eab9e627c1460a97fdf9eb93a910",
+                      "targetSize":  2314716,
+                      "sources":  [
+                                      {
+                                          "sourceSha256":  "bc59f5672c5d371bd8759d12fcbb122ad32b41cbbecd41fdf5024d7a7baa8c1a",
+                                          "deltaPath":  "level12.from-bc59f5672c5d.vcdiff"
+                                      }
+                                  ]
                   },
                   {
                       "path":  "level13",
                       "deltaPath":  "level13.vcdiff",
                       "sourceSha256":  "06fb2d693568326b51f25cf168b77a033a8d549901c2b70d07d300d94c400374",
-                      "targetSha256":  "12724b4c56cc40707eddcb4d5e8752deb871b9cb0ab45cbe2c1111265e759a35",
-                      "targetSize":  3100396
+                      "targetSha256":  "c9bf67ef6ccf253ecf3755da971854cfc2245e6bdb828b1b71b5d07aa03c6693",
+                      "targetSize":  3100508,
+                      "sources":  [
+                                      {
+                                          "sourceSha256":  "12724b4c56cc40707eddcb4d5e8752deb871b9cb0ab45cbe2c1111265e759a35",
+                                          "deltaPath":  "level13.from-12724b4c56cc.vcdiff"
+                                      }
+                                  ]
                   },
                   {
                       "path":  "level14",
                       "deltaPath":  "level14.vcdiff",
                       "sourceSha256":  "a97963b50e8bf61e349a56ac0b4576d4e793dc5256f81fb0372859dd9d06f681",
-                      "targetSha256":  "dabf9deea3b4d5b01163bdb5d8cf2fa395acd32c8bc0829cfd3c42299e9e639a",
-                      "targetSize":  3287732
+                      "targetSha256":  "78ecf1c1d04aa87ebc2c05c1cdc55a842b073840e985ec8fa4669b9eb4212c14",
+                      "targetSize":  3287812,
+                      "sources":  [
+                                      {
+                                          "sourceSha256":  "dabf9deea3b4d5b01163bdb5d8cf2fa395acd32c8bc0829cfd3c42299e9e639a",
+                                          "deltaPath":  "level14.from-dabf9deea3b4.vcdiff"
+                                      }
+                                  ]
+                  },
+                  {
+                      "path":  "level16",
+                      "deltaPath":  "level16.vcdiff",
+                      "sourceSha256":  "9fffbadaae680f0fc0e8f806f734baab85758acbe1bfbf61e93c7f61c0116820",
+                      "targetSha256":  "b2e7bcc0f7bc19d46a40982e26ea5b06b36e0a4fd7629ee4ed48fc245b0bf192",
+                      "targetSize":  4209700,
+                      "sources":  [
+
+                                  ]
                   },
                   {
                       "path":  "level17",
                       "deltaPath":  "level17.vcdiff",
                       "sourceSha256":  "613df05347397d6aeda96a43d35bbbde29b2673d1b321d7bb091b3b289205909",
                       "targetSha256":  "5f884ecb40d0166d4d885c59089812ed3ed43c6c97f41a59748db14af7a1b9f9",
-                      "targetSize":  470688
+                      "targetSize":  470688,
+                      "sources":  [
+
+                                  ]
                   },
                   {
                       "path":  "level20",
                       "deltaPath":  "level20.vcdiff",
                       "sourceSha256":  "086148f1ea4d3f89f1d8766bc05d28825e72ca612791e1422c9e3f0ffcea9ffb",
-                      "targetSha256":  "1dca0d4f07e947e0c25fff866fa6c1f960d17715a5556b80e64bb0325b2efbd7",
-                      "targetSize":  2333756
+                      "targetSha256":  "44479c89b6eca949e07a8b52309a93c83dae8b001ad7947f85fc777b6fb457f7",
+                      "targetSize":  2333804,
+                      "sources":  [
+                                      {
+                                          "sourceSha256":  "1dca0d4f07e947e0c25fff866fa6c1f960d17715a5556b80e64bb0325b2efbd7",
+                                          "deltaPath":  "level20.from-1dca0d4f07e9.vcdiff"
+                                      }
+                                  ]
                   },
                   {
                       "path":  "level21",
                       "deltaPath":  "level21.vcdiff",
                       "sourceSha256":  "f103e8959217c4fed598cf206af9e0ce00aea46cd4b83ba99a2f9cd9eb285c4b",
-                      "targetSha256":  "86e863ae8f90a40b7a688ff25322c55c504a8c957264f416cdd730c8214947d7",
-                      "targetSize":  5224372
+                      "targetSha256":  "f5ba6b33c836b113cdfe02a9c9a321ace5490cd4c940047c2ea587c3baed82f5",
+                      "targetSize":  5224556,
+                      "sources":  [
+                                      {
+                                          "sourceSha256":  "86e863ae8f90a40b7a688ff25322c55c504a8c957264f416cdd730c8214947d7",
+                                          "deltaPath":  "level21.from-86e863ae8f90.vcdiff"
+                                      }
+                                  ]
                   },
                   {
                       "path":  "level22",
                       "deltaPath":  "level22.vcdiff",
                       "sourceSha256":  "5c3b0dbbdab6c6c2a3750b167d2a6d8fd225f88822f50d994d3d8a4709c7767e",
-                      "targetSha256":  "1c56f348cef24214231964372aea956c91ca00d5873af070714c01a35d869cb9",
-                      "targetSize":  3434096
+                      "targetSha256":  "e7587c25f1715c14de03e50166eb545a754b3c6696bb754fbf71d0a9efe2f4e7",
+                      "targetSize":  3434328,
+                      "sources":  [
+                                      {
+                                          "sourceSha256":  "1c56f348cef24214231964372aea956c91ca00d5873af070714c01a35d869cb9",
+                                          "deltaPath":  "level22.from-1c56f348cef2.vcdiff"
+                                      }
+                                  ]
                   },
                   {
                       "path":  "level23",
                       "deltaPath":  "level23.vcdiff",
                       "sourceSha256":  "a87e9aaf9a64ef75e14cde287a39b6436858d26b327140f0714b5b0005e244df",
-                      "targetSha256":  "408f97a67e1780328ccd62983f777d71fe0bc735e704a8af3a40f8b035fa292b",
-                      "targetSize":  4680500
+                      "targetSha256":  "5eff72010bb1c0d443feb98627d29d3aa686b81220ddb49c914fef2df455ec98",
+                      "targetSize":  4680620,
+                      "sources":  [
+                                      {
+                                          "sourceSha256":  "408f97a67e1780328ccd62983f777d71fe0bc735e704a8af3a40f8b035fa292b",
+                                          "deltaPath":  "level23.from-408f97a67e17.vcdiff"
+                                      }
+                                  ]
+                  },
+                  {
+                      "path":  "level24",
+                      "deltaPath":  "level24.vcdiff",
+                      "sourceSha256":  "cafce9956c0a60101b2543559e0a78fec11d48fc53b7b54b93d66e7afc5ba2a2",
+                      "targetSha256":  "b415fb440b8c1a6a818760aeffaeb603dcf43d62b1b1c75c0b3daa5b1d88635f",
+                      "targetSize":  4031748,
+                      "sources":  [
+
+                                  ]
                   },
                   {
                       "path":  "level3",
                       "deltaPath":  "level3.vcdiff",
                       "sourceSha256":  "77fb97d0e4e6dde9d0c6d7c90bd76a9d38ef2dd8e1b148212cb2f90ba609d0ad",
-                      "targetSha256":  "e5dc01f6a44404fc68cf77a431b5c6b0dcbf21f00429a49a3761ed0e5a5a7b9a",
-                      "targetSize":  6692508
+                      "targetSha256":  "4cd69580897ed35a7dc642a3c9e97b10386b5f2fc6d96a41178007e868ee5f4f",
+                      "targetSize":  6692596,
+                      "sources":  [
+                                      {
+                                          "sourceSha256":  "e5dc01f6a44404fc68cf77a431b5c6b0dcbf21f00429a49a3761ed0e5a5a7b9a",
+                                          "deltaPath":  "level3.from-e5dc01f6a444.vcdiff"
+                                      }
+                                  ]
+                  },
+                  {
+                      "path":  "level4",
+                      "deltaPath":  "level4.vcdiff",
+                      "sourceSha256":  "2e630cc85552dd4ece61e7f20df9c01050a1da79c23fc3cbaae8486fee1290e1",
+                      "targetSha256":  "62260d392e46596eff92e25e25d84111d6074f325fde67cd9b434f873c45a9a9",
+                      "targetSize":  5414356,
+                      "sources":  [
+
+                                  ]
+                  },
+                  {
+                      "path":  "level5",
+                      "deltaPath":  "level5.vcdiff",
+                      "sourceSha256":  "2d81155cdc8525d7fc4cdecfd27b44dd9a683a2c8dc5754a6a45dbe985c308ee",
+                      "targetSha256":  "ef28b24c865f876bc883b0cd9f39839a114824acaeaffe911da0a13232a6e314",
+                      "targetSize":  7464428,
+                      "sources":  [
+
+                                  ]
                   },
                   {
                       "path":  "level6",
                       "deltaPath":  "level6.vcdiff",
                       "sourceSha256":  "d23e559fdb8d0ff2d941467bab07bc560191df6c69c0b096d79fbeb4387bbf80",
-                      "targetSha256":  "13f163c1a7cb2a1cd781d21afb0d35f7b9563bd32a1fe87c8fd2f585035df25b",
-                      "targetSize":  2966364
+                      "targetSha256":  "acd3805f7120b321a4461ee795d0be6ae2a8c264917100ab616c6331ad1a0200",
+                      "targetSize":  2966516,
+                      "sources":  [
+                                      {
+                                          "sourceSha256":  "13f163c1a7cb2a1cd781d21afb0d35f7b9563bd32a1fe87c8fd2f585035df25b",
+                                          "deltaPath":  "level6.from-13f163c1a7cb.vcdiff"
+                                      }
+                                  ]
                   },
                   {
                       "path":  "level7",
                       "deltaPath":  "level7.vcdiff",
                       "sourceSha256":  "5897b26078917a1d13904933f33b45343eca35901c9dc5de9fe9fa88e60092aa",
-                      "targetSha256":  "53bc502a6be1281cc5840a201a3e8445de8797cc8c7ccd052c12e1c91edcff51",
-                      "targetSize":  1831532
+                      "targetSha256":  "d52518874c73b3c5d948218242f7bdd492739d30c04d15c3434f7aea1ebae4e1",
+                      "targetSize":  1831628,
+                      "sources":  [
+                                      {
+                                          "sourceSha256":  "53bc502a6be1281cc5840a201a3e8445de8797cc8c7ccd052c12e1c91edcff51",
+                                          "deltaPath":  "level7.from-53bc502a6be1.vcdiff"
+                                      }
+                                  ]
                   },
                   {
                       "path":  "level9",
                       "deltaPath":  "level9.vcdiff",
                       "sourceSha256":  "64e0aa5249a45a2de45a440c0ef9a4f6a22635f953262679ddda5af0740443ea",
-                      "targetSha256":  "7f967bcef8e2dbb67db0b1bec566630128142136338a93ec2b29fb34800aa78f",
-                      "targetSize":  3066504
+                      "targetSha256":  "3c6e1ce251d2c83862d9dd6a5bbbfda0c5f54413249868f0044f83a63244fb9a",
+                      "targetSize":  3066632,
+                      "sources":  [
+                                      {
+                                          "sourceSha256":  "7f967bcef8e2dbb67db0b1bec566630128142136338a93ec2b29fb34800aa78f",
+                                          "deltaPath":  "level9.from-7f967bcef8e2.vcdiff"
+                                      }
+                                  ]
                   },
                   {
                       "path":  "resources.assets",
                       "deltaPath":  "resources.assets.vcdiff",
                       "sourceSha256":  "8d52ae232d00be0a96814540478a3f9344d031040018fff518c803c56d3619c1",
                       "targetSha256":  "de71e8fec5b90b37460c7e08335339c813c79683f2e3b4b79c61b5a6e2da2c8e",
-                      "targetSize":  63373304
+                      "targetSize":  63373304,
+                      "sources":  [
+
+                                  ]
                   },
                   {
                       "path":  "sharedassets3.assets",
                       "deltaPath":  "sharedassets3.assets.vcdiff",
                       "sourceSha256":  "52ad6d9a018505c1a7bea5c20119a0af34914438b34b21119058c5361075dc46",
                       "targetSha256":  "7302ca1954024bff3410aef2920c29935ce2fda41af0a0da5a9bf4b2dcd3c01f",
-                      "targetSize":  717680
+                      "targetSize":  717680,
+                      "sources":  [
+
+                                  ]
                   },
                   {
                       "path":  "il2cpp_data/Metadata/global-metadata.dat",
