@@ -7,7 +7,7 @@ Console.OutputEncoding = Encoding.UTF8;
 
 if (args.Length < 3)
 {
-    Console.Error.WriteLine("Usage: UiAssetPatcher <resources.assets> <output.assets> <translation-dir>");
+    Console.Error.WriteLine("Usage: UiAssetPatcher <input.assets> <output.assets> <translation-dir> [untranslated-report] [skipped-field-report] [detailed-untranslated-report]");
     return 1;
 }
 
@@ -15,6 +15,8 @@ var inputPath = Path.GetFullPath(args[0]);
 var outputPath = Path.GetFullPath(args[1]);
 var translationDir = Path.GetFullPath(args[2]);
 var reportPath = args.Length > 3 ? Path.GetFullPath(args[3]) : null;
+var skippedFieldReportPath = args.Length > 4 ? Path.GetFullPath(args[4]) : null;
+var detailedUntranslatedReportPath = args.Length > 5 ? Path.GetFullPath(args[5]) : null;
 var translations = LoadTranslations(translationDir);
 
 Console.WriteLine($"Input: {inputPath}");
@@ -41,15 +43,39 @@ var touched = 0;
 var failures = 0;
 var replacers = new List<AssetsReplacer>();
 var untranslated = new Dictionary<string, List<long>>(StringComparer.Ordinal);
+var untranslatedByField = new Dictionary<(string FieldName, string Source), List<long>>();
+var skippedTranslatedFields = new Dictionary<(string FieldName, string Source, string Target), List<long>>();
 
 foreach (var info in file.AssetInfos.Where(static info => info.TypeId == 114))
 {
     try
     {
         var root = manager.GetBaseField(instance, info);
-        var textFields = EnumerateFields(root)
-            .Where(field => field.TemplateField.ValueType == AssetValueType.String &&
-                IsTranslatableTextField(info.PathId, field.FieldName))
+        var allTextFields = EnumerateFields(root)
+            .Where(field => field.TemplateField.ValueType == AssetValueType.String)
+            .ToList();
+        if (skippedFieldReportPath is not null)
+        {
+            foreach (var field in allTextFields.Where(field => !IsTranslatableTextField(info.PathId, field.FieldName)))
+            {
+                var source = field.AsString;
+                if (!translations.TryGetValue(source, out var target) || source == target)
+                {
+                    continue;
+                }
+
+                var key = (field.FieldName, source, target);
+                if (!skippedTranslatedFields.TryGetValue(key, out var pathIds))
+                {
+                    pathIds = new List<long>();
+                    skippedTranslatedFields[key] = pathIds;
+                }
+                pathIds.Add(info.PathId);
+            }
+        }
+
+        var textFields = allTextFields
+            .Where(field => IsTranslatableTextField(info.PathId, field.FieldName))
             .ToList();
         if (textFields.Count == 0)
         {
@@ -70,6 +96,14 @@ foreach (var info in file.AssetInfos.Where(static info => info.TypeId == 114))
                         untranslated[source] = pathIds;
                     }
                     pathIds.Add(info.PathId);
+
+                    var detailedKey = (textField.FieldName, source);
+                    if (!untranslatedByField.TryGetValue(detailedKey, out var detailedPathIds))
+                    {
+                        detailedPathIds = new List<long>();
+                        untranslatedByField[detailedKey] = detailedPathIds;
+                    }
+                    detailedPathIds.Add(info.PathId);
                 }
                 continue;
             }
@@ -108,6 +142,25 @@ if (reportPath is not null)
         .OrderBy(static pair => pair.Key, StringComparer.OrdinalIgnoreCase)
         .Select(static pair => $"{string.Join(',', pair.Value)}\t{EscapeReport(pair.Key)}"), Encoding.UTF8);
     Console.WriteLine($"Report: {reportPath}");
+}
+if (skippedFieldReportPath is not null)
+{
+    Directory.CreateDirectory(Path.GetDirectoryName(skippedFieldReportPath)!);
+    File.WriteAllLines(skippedFieldReportPath, skippedTranslatedFields
+        .OrderBy(static pair => pair.Key.FieldName, StringComparer.Ordinal)
+        .ThenBy(static pair => pair.Key.Source, StringComparer.OrdinalIgnoreCase)
+        .Select(static pair => $"{pair.Key.FieldName}\t{string.Join(',', pair.Value)}\t{EscapeReport(pair.Key.Source)}\t{EscapeReport(pair.Key.Target)}"), Encoding.UTF8);
+    Console.WriteLine($"Translated strings in skipped fields: {skippedTranslatedFields.Sum(static pair => pair.Value.Count):N0}");
+    Console.WriteLine($"Skipped field report: {skippedFieldReportPath}");
+}
+if (detailedUntranslatedReportPath is not null)
+{
+    Directory.CreateDirectory(Path.GetDirectoryName(detailedUntranslatedReportPath)!);
+    File.WriteAllLines(detailedUntranslatedReportPath, untranslatedByField
+        .OrderBy(static pair => pair.Key.FieldName, StringComparer.Ordinal)
+        .ThenBy(static pair => pair.Key.Source, StringComparer.OrdinalIgnoreCase)
+        .Select(static pair => $"{pair.Key.FieldName}\t{string.Join(',', pair.Value)}\t{EscapeReport(pair.Key.Source)}"), Encoding.UTF8);
+    Console.WriteLine($"Detailed untranslated report: {detailedUntranslatedReportPath}");
 }
 return 0;
 
@@ -185,7 +238,8 @@ static IEnumerable<AssetTypeValueField> EnumerateFields(AssetTypeValueField fiel
 }
 
 static bool IsTranslatableTextField(long pathId, string fieldName) =>
-    fieldName is "m_text" or "Message" or "LandmarkName" or "LandmarkDescription" ||
+    fieldName is "m_text" or "Message" or "LandmarkName" or "LandmarkDescription" or
+        "AmbientMessage" or "InteractVerb" ||
     pathId == 41666 && fieldName == "data";
 
 static bool IsReportableDisplayField(long pathId, string fieldName) =>
