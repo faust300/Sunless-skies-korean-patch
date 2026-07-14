@@ -1,5 +1,5 @@
 ﻿{
-    "formatVersion":  1,
+    "formatVersion":  2,
     "tool":  {
                  "name":  "xdelta3",
                  "version":  "3.2.0"
@@ -129,7 +129,13 @@
                       "deltaPath":  "il2cpp_data_Metadata_global-metadata.dat.vcdiff",
                       "sourceSha256":  "812bc79797d82c1e3f348c1279e4d8c5031bf675a5bd243ae1dbe98e5332e772",
                       "targetSha256":  "33e126f01cc00bc5ad50cbad9c79f16f4561a10e526cbe6d50e9ba6b0bac1c3b",
-                      "targetSize":  12978506
+                      "targetSize":  12978506,
+                      "sources":  [
+                                      {
+                                          "sourceSha256":  "1e0dd9b57dd4b0401cdf9b7ff8bfb06fbf55f0cc5d14c9d6b8f154c977aaa721",
+                                          "deltaPath":  "il2cpp_data_Metadata_global-metadata.dat.from-1e0dd9b57dd4.vcdiff"
+                                      }
+                                  ]
                   }
               ]
 }

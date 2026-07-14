@@ -7,6 +7,7 @@ param(
 
     [string] $BsdiffPath,
     [string] $BspatchPath,
+    [string[]] $AdditionalSourceDataDirs = @(),
     [string] $OutputDir = (Join-Path $PSScriptRoot "delta-results")
 )
 
@@ -59,6 +60,39 @@ foreach ($line in Get-Content -LiteralPath $assetListPath) {
     }
     Remove-Item -LiteralPath $xdeltaOutput -Force
 
+    $additionalSources = @()
+    foreach ($additionalSourceDataDir in $AdditionalSourceDataDirs) {
+        $additionalSourcePath = Join-Path $additionalSourceDataDir $relativePath
+        if (-not (Test-Path -LiteralPath $additionalSourcePath -PathType Leaf)) {
+            continue
+        }
+
+        $additionalSourceHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $additionalSourcePath).Hash
+        $primarySourceHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $sourcePath).Hash
+        if ($additionalSourceHash -eq $primarySourceHash -or
+            $additionalSourceHash -eq $targetHash -or
+            $additionalSources.SourceSha256 -contains $additionalSourceHash.ToLowerInvariant()) {
+            continue
+        }
+
+        $hashSuffix = $additionalSourceHash.Substring(0, 12).ToLowerInvariant()
+        $additionalDeltaFile = Join-Path $OutputDir "$safeName.from-$hashSuffix.vcdiff"
+        $additionalOutput = Join-Path $OutputDir "$safeName.from-$hashSuffix.out"
+        & $XdeltaPath -f -9 -e -s $additionalSourcePath $targetPath $additionalDeltaFile
+        if ($LASTEXITCODE -ne 0) { throw "xdelta upgrade encode failed: $relativePath ($hashSuffix)" }
+        & $XdeltaPath -f -d -s $additionalSourcePath $additionalDeltaFile $additionalOutput
+        if ($LASTEXITCODE -ne 0) { throw "xdelta upgrade decode failed: $relativePath ($hashSuffix)" }
+        if ((Get-FileHash -Algorithm SHA256 -LiteralPath $additionalOutput).Hash -ne $targetHash) {
+            throw "xdelta upgrade result hash mismatch: $relativePath ($hashSuffix)"
+        }
+        Remove-Item -LiteralPath $additionalOutput -Force
+
+        $additionalSources += [pscustomobject]@{
+            SourceSha256 = $additionalSourceHash.ToLowerInvariant()
+            DeltaPath = [IO.Path]::GetFileName($additionalDeltaFile)
+        }
+    }
+
     $bsdiffBytes = $null
     if ($runBsdiff) {
         $bsdiffFile = Join-Path $OutputDir "$safeName.bsdiff"
@@ -82,12 +116,13 @@ foreach ($line in Get-Content -LiteralPath $assetListPath) {
         BsdiffBytes = $bsdiffBytes
         SourceSha256 = (Get-FileHash -Algorithm SHA256 -LiteralPath $sourcePath).Hash.ToLowerInvariant()
         TargetSha256 = $targetHash.ToLowerInvariant()
+        AdditionalSources = $additionalSources
     }
 }
 
 $rows | Export-Csv -LiteralPath (Join-Path $OutputDir "results.csv") -NoTypeInformation -Encoding UTF8
 $manifest = [ordered]@{
-    formatVersion = 1
+    formatVersion = 2
     tool = [ordered]@{ name = "xdelta3"; version = "3.2.0" }
     files = @($rows | ForEach-Object {
         [ordered]@{
@@ -96,6 +131,12 @@ $manifest = [ordered]@{
             sourceSha256 = $_.SourceSha256
             targetSha256 = $_.TargetSha256
             targetSize = $_.PatchedBytes
+            sources = @($_.AdditionalSources | ForEach-Object {
+                [ordered]@{
+                    sourceSha256 = $_.SourceSha256
+                    deltaPath = $_.DeltaPath
+                }
+            })
         }
     })
 }

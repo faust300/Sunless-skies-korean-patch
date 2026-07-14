@@ -437,7 +437,7 @@ static int InstallBinaryDeltas(DeltaPackage package, string gameDataDir, string 
     var json = File.ReadAllText(package.ManifestPath, Encoding.UTF8);
     var manifest = JsonSerializer.Deserialize(json, DeltaJsonContext.Default.DeltaManifest)
         ?? throw new InvalidOperationException($"Invalid delta manifest: {package.ManifestPath}");
-    if (manifest.FormatVersion != 1 || manifest.Files.Count == 0)
+    if ((manifest.FormatVersion != 1 && manifest.FormatVersion != 2) || manifest.Files.Count == 0)
     {
         throw new InvalidOperationException($"Unsupported or empty delta manifest: {package.ManifestPath}");
     }
@@ -446,14 +446,9 @@ static int InstallBinaryDeltas(DeltaPackage package, string gameDataDir, string 
     foreach (var entry in manifest.Files)
     {
         var targetPath = ResolvePackagePath(gameDataDir, entry.Path);
-        var deltaPath = ResolvePackagePath(package.DeltaDirectory, entry.DeltaPath);
         if (!File.Exists(targetPath))
         {
             throw new InvalidOperationException($"Game file not found: {entry.Path}");
-        }
-        if (!File.Exists(deltaPath))
-        {
-            throw new InvalidOperationException($"Delta file not found: {entry.DeltaPath}");
         }
 
         var currentHash = ComputeSha256(targetPath);
@@ -462,12 +457,25 @@ static int InstallBinaryDeltas(DeltaPackage package, string gameDataDir, string 
             Console.WriteLine($"  {entry.Path,-46} already installed");
             continue;
         }
-        if (!currentHash.Equals(entry.SourceSha256, StringComparison.OrdinalIgnoreCase))
+        var selectedSource = currentHash.Equals(entry.SourceSha256, StringComparison.OrdinalIgnoreCase)
+            ? new DeltaSourceEntry(entry.SourceSha256, entry.DeltaPath)
+            : entry.Sources?.FirstOrDefault(source =>
+                currentHash.Equals(source.SourceSha256, StringComparison.OrdinalIgnoreCase));
+        if (selectedSource is null)
         {
+            var supportedHashes = new[] { entry.SourceSha256 }
+                .Concat(entry.Sources?.Select(source => source.SourceSha256) ?? [])
+                .Distinct(StringComparer.OrdinalIgnoreCase);
             throw new InvalidOperationException(
                 $"Unsupported game version: {entry.Path}{Environment.NewLine}" +
-                $"Expected SHA-256: {entry.SourceSha256}{Environment.NewLine}" +
+                $"Expected SHA-256: {string.Join(Environment.NewLine + "                 ", supportedHashes)}{Environment.NewLine}" +
                 $"Actual SHA-256:   {currentHash}");
+        }
+
+        var deltaPath = ResolvePackagePath(package.DeltaDirectory, selectedSource.DeltaPath);
+        if (!File.Exists(deltaPath))
+        {
+            throw new InvalidOperationException($"Delta file not found: {selectedSource.DeltaPath}");
         }
 
         Console.WriteLine($"  {entry.Path,-46} {(dryRun ? "would patch" : "patching")}");
@@ -1138,7 +1146,12 @@ sealed record DeltaFileEntry(
     [property: JsonPropertyName("deltaPath")] string DeltaPath,
     [property: JsonPropertyName("sourceSha256")] string SourceSha256,
     [property: JsonPropertyName("targetSha256")] string TargetSha256,
-    [property: JsonPropertyName("targetSize")] long TargetSize);
+    [property: JsonPropertyName("targetSize")] long TargetSize,
+    [property: JsonPropertyName("sources")] List<DeltaSourceEntry>? Sources);
+
+sealed record DeltaSourceEntry(
+    [property: JsonPropertyName("sourceSha256")] string SourceSha256,
+    [property: JsonPropertyName("deltaPath")] string DeltaPath);
 
 [JsonSerializable(typeof(DeltaManifest))]
 internal partial class DeltaJsonContext : JsonSerializerContext
